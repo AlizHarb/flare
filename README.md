@@ -6,19 +6,12 @@
 
 A modern, performant, and highly customizable toast notification system designed specifically for Laravel Livewire applications with real-time support and stunning animations.
 
-[![Tests](https://github.com/alizharb/flare/workflows/Tests/badge.svg)](https://github.com/alizharb/flare/actions)
 [![PHP Version](https://img.shields.io/badge/PHP-8.4%2B-777BB4?logo=php&logoColor=white)](https://php.net)
 [![Laravel](https://img.shields.io/badge/Laravel-12.0%2B-FF2D20?logo=laravel&logoColor=white)](https://laravel.com)
 [![Livewire](https://img.shields.io/badge/Livewire-3.5%2B-4E56A6?logo=livewire&logoColor=white)](https://livewire.laravel.com)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 [Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [Documentation](#-documentation) • [Contributing](#-contributing)
-
----
-
-![Flare Demo](https://via.placeholder.com/800x400/667eea/ffffff?text=Flare+Toast+Notifications+Demo)
-
-*Beautiful, performant toast notifications that enhance user experience*
 
 </div>
 
