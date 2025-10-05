@@ -1,0 +1,67 @@
+{
+    "name": "alizharb/flare",
+    "description": "A beautiful, performant toast notification package for Laravel Livewire with real-time support",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "livewire",
+        "toast",
+        "notifications",
+        "alpine",
+        "alerts",
+        "flash-messages"
+    ],
+    "authors": [
+        {
+            "name": "Ali Harb",
+            "email": "harbzali@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.4",
+        "illuminate/support": "^12.0",
+        "livewire/livewire": "^3.5"
+    },
+    "require-dev": {
+        "pestphp/pest": "^3.0",
+        "pestphp/pest-plugin-laravel": "^3.0",
+        "orchestra/testbench": "^10.0",
+        "phpstan/phpstan": "^2.0",
+        "laravel/pint": "^1.18"
+    },
+    "autoload": {
+        "psr-4": {
+            "AlizHarb\\Flare\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AlizHarb\\Flare\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "analyse": "vendor/bin/phpstan analyse",
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "AlizHarb\\Flare\\FlareServiceProvider"
+            ],
+            "aliases": {
+                "Flare": "AlizHarb\\Flare\\Facades\\Flare"
+            }
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
