@@ -42,7 +42,10 @@ final class Toasts extends Component
         assert(is_string($pos));
         $this->position = $pos;
         $this->expanded = (bool) config('flare.stack_expanded', false);
-        $this->maxVisible = (int) config('flare.max_visible', 3);
+        
+        $maxVisible = config('flare.max_visible', 3);
+        assert(is_int($maxVisible));
+        $this->maxVisible = $maxVisible;
     }
 
     /**
