@@ -18,31 +18,29 @@ final class Toast extends Component
     /**
      * The position where toasts will be displayed.
      */
-    public string $position;
+    public string $position = 'bottom end';
 
     /**
      * Whether toasts are expanded (always true for simple toast).
      */
-    public bool $expanded;
+    public bool $expanded = true;
 
     /**
      * Maximum number of visible toasts (999 to show all).
      */
-    public int $maxVisible;
+    public int $maxVisible = 999;
 
     /**
      * Create a new toast component instance.
      *
-     * @param string|null $position   The position for displaying toasts
-     * @param bool|null   $expanded   Whether toasts should be expanded (ignored, always true)
-     * @param int|null    $maxVisible Maximum visible toasts (ignored, always shows all)
+     * @param  string|null  $position  The position for displaying toasts
      */
     public function __construct(
-        ?string $position = null,
-        ?bool $expanded = null,
-        ?int $maxVisible = null
+        ?string $position = null
     ) {
-        $this->position = $position ?? config('flare.position', 'bottom end');
+        $pos = $position ?? config('flare.position', 'bottom end');
+        assert(is_string($pos));
+        $this->position = $pos;
         $this->expanded = true;
         $this->maxVisible = 999;
     }

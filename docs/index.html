@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flare Documentation - Beautiful Toast Notifications for Laravel Livewire</title>
+    <meta name="description" content="Complete documentation for Flare - a modern, customizable toast notification system for Laravel Livewire">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.0/github-markdown.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #3b82f6;
+            --primary-hover: #2563eb;
+            --bg: #ffffff;
+            --bg-secondary: #f9fafb;
+            --text: #1f2937;
+            --text-secondary: #6b7280;
+            --border: #e5e7eb;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --code-bg: #f3f4f6;
+        }
+        
+        html.dark {
+            --bg: #0f172a;
+            --bg-secondary: #1e293b;
+            --text: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --border: #334155;
+            --shadow: rgba(0, 0, 0, 0.3);
+            --code-bg: #1e293b;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            background: var(--bg-secondary);
+            border-right: 1px solid var(--border);
+            padding: 1.5rem;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            transition: transform 0.3s, background-color 0.3s;
+            z-index: 100;
+        }
+        
+        .sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .sidebar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        
+        .sidebar::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 3px;
+        }
+        
+        .logo-section {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.25rem;
+        }
+        
+        .tagline {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+        
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            background: var(--code-bg);
+            border-radius: 0.5rem;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: all 0.2s;
+        }
+        
+        .theme-toggle:hover {
+            background: var(--border);
+        }
+        
+        .theme-toggle svg {
+            width: 1.25rem;
+            height: 1.25rem;
+            color: var(--text);
+        }
+        
+        .nav-section {
+            margin-bottom: 1.5rem;
+        }
+        
+        .nav-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .nav-link {
+            display: block;
+            padding: 0.5rem 0.75rem;
+            color: var(--text);
+            text-decoration: none;
+            border-radius: 0.375rem;
+            transition: all 0.15s;
+            font-size: 0.9375rem;
+        }
+        
+        .nav-link:hover {
+            background: var(--code-bg);
+            color: var(--primary);
+        }
+        
+        .nav-link.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .nav-link.external::after {
+            content: ' ↗';
+            font-size: 0.75rem;
+        }
+        
+        /* Content */
+        .content {
+            flex: 1;
+            margin-left: 280px;
+            padding: 3rem;
+            max-width: 900px;
+        }
+        
+        .markdown-body {
+            background: transparent !important;
+            color: var(--text) !important;
+        }
+        
+        .markdown-body h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+        
+        .markdown-body h2 {
+            font-size: 1.875rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+        
+        .markdown-body h2:first-of-type {
+            border-top: none;
+            padding-top: 0;
+        }
+        
+        .markdown-body h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem;
+        }
+        
+        .markdown-body p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+        
+        .markdown-body code {
+            background: var(--code-bg) !important;
+            color: var(--text) !important;
+            padding: 0.2em 0.4em;
+            border-radius: 0.25rem;
+            font-size: 0.875em;
+        }
+        
+        .markdown-body pre {
+            background: var(--code-bg) !important;
+            border: 1px solid var(--border) !important;
+        }
+        
+        .markdown-body pre code {
+            background: transparent !important;
+        }
+        
+        .markdown-body blockquote {
+            border-left: 4px solid var(--primary);
+            background: var(--code-bg);
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .markdown-body table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1rem 0;
+        }
+        
+        .markdown-body th,
+        .markdown-body td {
+            border: 1px solid var(--border);
+            padding: 0.75rem;
+        }
+        
+        .markdown-body th {
+            background: var(--bg-secondary);
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        .footer {
+            margin-top: 4rem;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .footer-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .footer-link:hover {
+            color: var(--primary);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 200;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+        }
+        
+        .mobile-menu-btn svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: var(--text);
+        }
+        
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 90;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .mobile-overlay.show {
+                display: block;
+            }
+            
+            .content {
+                margin-left: 0;
+                padding: 5rem 1.5rem 1.5rem;
+            }
+        }
+        
+        /* Loading */
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 50vh;
+            color: var(--text-secondary);
+        }
+        
+        .spinner {
+            border: 3px solid var(--border);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            width: 2rem;
+            height: 2rem;
+            animation: spin 1s linear infinite;
+            margin-right: 0.75rem;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+    </button>
+    
+    <div class="mobile-overlay" onclick="toggleMobileMenu()"></div>
+    
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <div class="logo-section">
+                <div class="logo">🔥 Flare</div>
+                <div class="tagline">Toast Notifications for Laravel</div>
+                
+                <div class="theme-toggle" onclick="toggleTheme()">
+                    <svg class="sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                    <span id="theme-text">Light</span>
+                </div>
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-title">Getting Started</div>
+                <a href="?page=introduction" class="nav-link" data-page="introduction">Introduction</a>
+                <a href="?page=installation" class="nav-link" data-page="installation">Installation</a>
+                <a href="?page=quick-start" class="nav-link" data-page="quick-start">Quick Start</a>
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-title">Core Concepts</div>
+                <a href="?page=themes" class="nav-link" data-page="themes">Themes</a>
+                <a href="?page=configuration" class="nav-link" data-page="configuration">Configuration</a>
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-title">Resources</div>
+                <a href="../EXAMPLES.md" class="nav-link external" target="_blank">Examples</a>
+                <a href="../README.md" class="nav-link external" target="_blank">README</a>
+                <a href="../CHANGELOG.md" class="nav-link external" target="_blank">Changelog</a>
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-title">Links</div>
+                <a href="https://github.com/alizharb/flare" class="nav-link external" target="_blank">GitHub</a>
+                <a href="https://github.com/sponsors/alizharb" class="nav-link external" target="_blank">Sponsor</a>
+            </div>
+        </nav>
+        
+        <main class="content">
+            <div id="content" class="markdown-body">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <span>Loading documentation...</span>
+                </div>
+            </div>
+            
+            <footer class="footer">
+                <div class="footer-content">
+                    <div>
+                        <strong>Flare v1.1.0</strong> • Built with ❤️ by <a href="https://github.com/alizharb" class="footer-link">Ali Harb</a>
+                    </div>
+                    <div class="footer-links">
+                        <a href="https://github.com/alizharb/flare" class="footer-link" target="_blank">GitHub</a>
+                        <a href="https://github.com/sponsors/alizharb" class="footer-link" target="_blank">Sponsor</a>
+                        <a href="https://github.com/alizharb/flare/blob/main/LICENSE" class="footer-link" target="_blank">MIT License</a>
+                    </div>
+                </div>
+                <div style="margin-top: 1rem; text-align: center; color: var(--text-secondary); font-size: 0.8125rem;">
+                    © 2025 Ali Harb. All rights reserved.
+                </div>
+            </footer>
+        </main>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        // Theme management
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.classList.remove(currentTheme);
+            html.classList.add(newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            document.getElementById('theme-text').textContent = 
+                newTheme === 'dark' ? 'Dark' : 'Light';
+        }
+        
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.classList.add(savedTheme);
+        document.getElementById('theme-text').textContent = 
+            savedTheme === 'dark' ? 'Dark' : 'Light';
+        
+        // Mobile menu
+        function toggleMobileMenu() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.querySelector('.mobile-overlay');
+            sidebar.classList.toggle('open');
+            overlay.classList.toggle('show');
+        }
+        
+        // Load documentation page
+        async function loadPage(page) {
+            const content = document.getElementById('content');
+            
+            try {
+                content.innerHTML = '<div class="loading"><div class="spinner"></div><span>Loading...</span></div>';
+                
+                const response = await fetch(`${page}.md`);
+                if (!response.ok) throw new Error('Page not found');
+                
+                const markdown = await response.text();
+                const html = marked.parse(markdown);
+                content.innerHTML = html;
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                    if (link.dataset.page === page) {
+                        link.classList.add('active');
+                    }
+                });
+                
+                // Close mobile menu
+                document.getElementById('sidebar').classList.remove('open');
+                document.querySelector('.mobile-overlay').classList.remove('show');
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+            } catch (error) {
+                content.innerHTML = `
+                    <h1>Page Not Found</h1>
+                    <p>The requested documentation page could not be found.</p>
+                    <p><a href="?page=introduction">Return to Introduction</a></p>
+                `;
+            }
+        }
+        
+        // Handle navigation
+        document.querySelectorAll('.nav-link[data-page]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const page = link.dataset.page;
+                history.pushState({page}, '', `?page=${page}`);
+                loadPage(page);
+            });
+        });
+        
+        // Handle back/forward
+        window.addEventListener('popstate', (e) => {
+            if (e.state && e.state.page) {
+                loadPage(e.state.page);
+            }
+        });
+        
+        // Load initial page
+        const urlParams = new URLSearchParams(window.location.search);
+        const initialPage = urlParams.get('page') || 'introduction';
+        loadPage(initialPage);
+    </script>
+</body>
+</html>

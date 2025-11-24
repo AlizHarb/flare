@@ -1,19 +1,42 @@
 <div align="center">
 
-# 🔥 Flare
+<img src="https://raw.githubusercontent.com/alizharb/flare/main/art/logo.svg" width="120" alt="Flare Logo">
 
-### Beautiful Toast Notifications for Laravel Livewire
+# Flare
 
-A modern, performant, and highly customizable toast notification system designed specifically for Laravel Livewire applications with real-time support and stunning animations.
+### Production-Ready Toast Notifications for Laravel Livewire
 
-[![PHP Version](https://img.shields.io/badge/PHP-8.4%2B-777BB4?logo=php&logoColor=white)](https://php.net)
-[![Laravel](https://img.shields.io/badge/Laravel-12.0%2B-FF2D20?logo=laravel&logoColor=white)](https://laravel.com)
-[![Livewire](https://img.shields.io/badge/Livewire-3.5%2B-4E56A6?logo=livewire&logoColor=white)](https://livewire.laravel.com)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+**Elegant • Performant • Customizable**
 
-[Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [Documentation](#-documentation) • [Contributing](#-contributing)
+[![PHP Version](https://img.shields.io/badge/PHP-8.3%2B-777BB4?style=flat-square&logo=php&logoColor=white)](https://php.net)
+[![Laravel](https://img.shields.io/badge/Laravel-12.0%2B-FF2D20?style=flat-square&logo=laravel&logoColor=white)](https://laravel.com)
+[![Livewire](https://img.shields.io/badge/Livewire-3.5%2B-4E56A6?style=flat-square&logo=livewire&logoColor=white)](https://livewire.laravel.com)
+[![Tests](https://img.shields.io/github/actions/workflow/status/alizharb/flare/tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/alizharb/flare/actions)
+[![License](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](LICENSE)
+[![Downloads](https://img.shields.io/packagist/dt/alizharb/flare?style=flat-square)](https://packagist.org/packages/alizharb/flare)
+
+[Features](#-features) • [Installation](#-installation) • [Quick Start](#-quick-start) • [Documentation](#-documentation) • [Themes](#-themes) • [Examples](#-examples)
 
 </div>
+
+---
+
+## 🎯 Overview
+
+Flare is a modern, feature-rich toast notification system built specifically for Laravel Livewire applications. With **zero configuration** required and **three distinct visual themes**, Flare provides beautiful user feedback out of the box while offering extensive customization for advanced use cases.
+
+```php
+// Simple, elegant API
+Flare::success('Profile updated successfully!');
+
+// Full control when you need it
+Flare::warning(
+    text: 'Session expires in 5 minutes',
+    heading: 'Warning',
+    duration: 10000,
+    position: 'top center'
+);
+```
 
 ---
 
@@ -21,53 +44,64 @@ A modern, performant, and highly customizable toast notification system designed
 
 <table>
 <tr>
-<td width="50%">
+<td width="50%" valign="top">
 
-### 🎨 **Beautiful Design**
-- Stunning, modern UI with smooth animations
-- Multiple variants (success, warning, danger, info)
-- Fully customizable styling
-- Dark mode ready
-- Responsive on all devices
+### 🎨 **Three Professional Themes**
+
+- **Classic** - Minimal, clean, fastest performance
+- **Modern** - Balanced design with subtle effects _(default)_
+- **Vibrant** - Bold, colorful, attention-grabbing
+
+All themes include:
+
+- ✓ Light & dark mode support
+- ✓ Smooth animations
+- ✓ Responsive design
+- ✓ RTL/LTR layouts
 
 ### ⚡ **High Performance**
-- Alpine.js powered for minimal overhead
-- Optimized animations with CSS transitions
-- Lazy loading support
-- No jQuery dependency
-- Lightweight footprint
 
-### 🔧 **Developer Friendly**
-- Simple, intuitive API
-- Trait for easy Livewire integration
-- Facade for global access
-- TypeScript definitions ready
-- Full IDE autocomplete support
+- Alpine.js powered (minimal overhead)
+- Optimized CSS transitions
+- Smart caching & compilation
+- No jQuery dependency
+- Lightweight footprint (~15KB)
+
+### 🔧 **Developer Experience**
+
+- **Zero Configuration** - Works out of the box
+- **Simple API** - Intuitive, clean methods
+- **Livewire Trait** - `use WithFlare`
+- **TypeScript Support** - Full type definitions
+- **IDE Autocomplete** - PHPDoc annotations
 
 </td>
-<td width="50%">
+<td width="50%" valign="top">
 
-### 🚀 **Advanced Features**
-- Real-time updates with Livewire
-- Queue management for multiple toasts
-- Auto-dismiss with configurable duration
-- Hover to pause auto-dismiss
-- Keyboard navigation support
-- Position flexibility (9 positions)
+### 📍 **Flexible Positioning**
+
+- 6 position options (top/bottom × start/center/end)
+- Per-toast position override
+- RTL/LTR automatic adaptation
+- Responsive mobile behavior
+
+### 🎭 **Advanced Features**
+
+- **Stacking System** - Configurable toast layering
+- **Auto-Dismiss** - Configurable duration
+- **Hover Pause** - Pause on mouse hover
+- **Keyboard Shortcuts** - Esc, Shift+Esc, Alt+D
+- **Progress Bar** - Visual countdown
+- **Queue Management** - Handle multiple toasts
 
 ### 🧪 **Production Ready**
-- Comprehensive Pest test suite
-- PHPStan Level 9 analysis
-- 100% code coverage
-- CI/CD with GitHub Actions
-- Semantic versioning
 
-### 📦 **Easy Integration**
-- Zero configuration required
-- Auto-discovery support
-- Publishable assets & views
-- Minimal setup time
-- Extensive documentation
+- ✓ Comprehensive test suite (12 tests, 22 assertions)
+- ✓ PHPStan Level 9 compliance
+- ✓ PSR-12 code style
+- ✓ CI/CD with GitHub Actions
+- ✓ Semantic versioning
+- ✓ Extensive documentation
 
 </td>
 </tr>
@@ -77,95 +111,69 @@ A modern, performant, and highly customizable toast notification system designed
 
 ## 📋 Requirements
 
-- **PHP**: 8.4 or higher
-- **Laravel**: 12.0 or higher
-- **Livewire**: 3.5 or higher
-- **Alpine.js**: 3.x (included in Livewire 3)
+| Requirement   | Version                        |
+| ------------- | ------------------------------ |
+| **PHP**       | 8.3+                           |
+| **Laravel**   | 12.0+                          |
+| **Livewire**  | 3.5+                           |
+| **Alpine.js** | 3.x _(included in Livewire 3)_ |
 
 ---
 
 ## 🚀 Installation
 
-Install Flare via Composer:
+### Step 1: Install via Composer
 
 ```bash
 composer require alizharb/flare
 ```
 
-### Publish Assets (Optional)
+### Step 2: Publish Assets
 
-Publish the configuration file:
-
-```bash
-php artisan vendor:publish --tag=flare-config
-```
-
-Publish the views (for customization):
-
-```bash
-php artisan vendor:publish --tag=flare-views
-```
-
-Publish the assets (JavaScript & CSS):
+> **IMPORTANT**: Assets must be published for Flare to work.
 
 ```bash
 php artisan vendor:publish --tag=flare-assets
 ```
 
----
-
-## ⚙️ Setup
-
-### 1. Add Scripts & Styles
-
-Include Flare's scripts and styles in your layout:
+### Step 3: Add to Layout
 
 ```blade
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My App</title>
-
-    <!-- Flare Styles -->
-    @flareStyles
+    @flareStyles {{-- Required --}}
 </head>
 <body>
-    {{ $slot }}
+    <flare::toasts /> {{-- Required --}}
 
-    <!-- Flare Scripts -->
-    @flareScripts
+    @flareScripts {{-- Required --}}
 </body>
 </html>
 ```
 
-### 2. Add Toast Component
+**That's it!** 🎉 You're ready to use Flare.
 
-Add the toast component to your layout (place once, typically in your main layout):
+<details>
+<summary><strong>Optional Configuration</strong></summary>
 
-```blade
-<!-- Using Livewire Component -->
-<livewire:flare-toasts />
+```bash
+# Publish config file
+php artisan vendor:publish --tag=flare-config
 
-<!-- OR using Blade Component -->
-<x-flare::toast />
-
-<!-- OR with custom position and settings -->
-<livewire:flare-toasts position="top center" :expanded="true" />
+# Publish views for customization
+php artisan vendor:publish --tag=flare-views
 ```
 
-**That's it!** You're ready to use Flare 🎉
+</details>
 
 ---
 
-## 💡 Usage
+## ⚡ Quick Start
 
-Flare provides multiple ways to trigger toast notifications based on your preferences and use cases.
+### Using the Facade
 
-### 🎯 Method 1: Using the Facade (Anywhere in Your App)
-
-Perfect for controllers, services, jobs, and any other class:
+Perfect for controllers, services, and any PHP class:
 
 ```php
 use AlizHarb\Flare\Facades\Flare;
@@ -174,29 +182,18 @@ class UserController extends Controller
 {
     public function store(Request $request)
     {
-        // Your logic here...
+        User::create($request->validated());
 
-        // Show success toast
         Flare::success('User created successfully!');
 
         return redirect()->route('users.index');
     }
-
-    public function destroy(User $user)
-    {
-        $user->delete();
-
-        // Show danger toast with heading
-        Flare::danger('User has been deleted', 'Warning');
-
-        return back();
-    }
 }
 ```
 
-### 🔥 Method 2: Using the WithFlare Trait (Livewire Components)
+### Using the Livewire Trait
 
-The easiest way to use Flare in Livewire components:
+The easiest way in Livewire components:
 
 ```php
 use Livewire\Component;
@@ -206,586 +203,284 @@ class CreatePost extends Component
 {
     use WithFlare;
 
-    public $title;
-    public $content;
-
     public function save()
     {
-        $this->validate([
-            'title' => 'required|min:3',
-            'content' => 'required',
-        ]);
+        Post::create($this->validate());
 
-        Post::create([
-            'title' => $this->title,
-            'content' => $this->content,
-        ]);
-
-        // Show success toast
-        $this->flareSuccess('Post published successfully!', 'Success');
-
-        $this->reset();
-    }
-
-    public function delete()
-    {
-        // Show warning toast
-        $this->flareWarning('This action cannot be undone', 'Warning');
-    }
-
-    public function someAction()
-    {
-        // Custom toast with all options
-        $this->flareToast(
-            text: 'Operation completed',
-            heading: 'Success',
-            duration: 3000,
-            variant: 'info',
-            position: 'top center'
-        );
-    }
-
-    public function render()
-    {
-        return view('livewire.create-post');
+        $this->flareSuccess('Post published!', 'Success');
     }
 }
 ```
 
-### 🌐 Method 3: Using JavaScript API (Frontend)
+### Using JavaScript
 
-For dynamic client-side notifications:
+For client-side notifications:
 
 ```javascript
-// Simple success toast
-Flare.success('Item added to cart!');
+// Simple
+Flare.success("Item added to cart!");
 
-// Warning toast
-Flare.warning('Stock is running low');
-
-// Error toast
-Flare.error('Failed to process payment');
-
-// Custom toast with options
-Flare.toast('Welcome back!', {
-    heading: 'Hello User',
-    variant: 'info',
-    duration: 5000,
-    position: 'top center'
-});
-
-// Persistent toast (duration: 0)
-Flare.toast('Please review your settings', {
-    variant: 'warning',
-    duration: 0  // Won't auto-dismiss
+// Advanced
+Flare.toast("Welcome back!", {
+  heading: "Hello User",
+  variant: "info",
+  duration: 5000,
+  position: "top center",
 });
 ```
 
 ---
 
-## 📚 API Reference
+## 🎨 Themes
 
-### Facade Methods
+Flare includes three professionally designed themes. Choose the one that fits your application's aesthetic.
 
-All Facade methods are available through `AlizHarb\Flare\Facades\Flare`:
+<table>
+<tr>
+<td width="33%" align="center">
 
-```php
-// Basic toast (default variant)
-Flare::toast(string $text, ?string $heading = null, int $duration = 5000, ?string $variant = null, ?string $position = null): void
+### Classic
 
-// Success toast (green)
-Flare::success(string $text, ?string $heading = null, int $duration = 5000, ?string $position = null): void
+**Minimal & Professional**
 
-// Warning toast (yellow)
-Flare::warning(string $text, ?string $heading = null, int $duration = 5000, ?string $position = null): void
-
-// Danger toast (red)
-Flare::danger(string $text, ?string $heading = null, int $duration = 5000, ?string $position = null): void
-
-// Error toast (alias for danger)
-Flare::error(string $text, ?string $heading = null, int $duration = 5000, ?string $position = null): void
-
-// Info toast (blue)
-Flare::info(string $text, ?string $heading = null, int $duration = 5000, ?string $position = null): void
-
-// Generate script tag
-Flare::scripts(): string
-
-// Generate style tag
-Flare::styles(): string
-```
-
-### WithFlare Trait Methods
-
-All trait methods are available in Livewire components:
+Solid backgrounds  
+Single shadow  
+No blur  
+⚡ Fastest
 
 ```php
-// Basic toast
-$this->flareToast(string $text, ?string $heading = null, int $duration = 5000, ?string $variant = null, ?string $position = null): void
-
-// Success toast
-$this->flareSuccess(string $text, ?string $heading = null, int $duration = 5000, ?string $position = null): void
-
-// Warning toast
-$this->flareWarning(string $text, ?string $heading = null, int $duration = 5000, ?string $position = null): void
-
-// Danger toast
-$this->flareDanger(string $text, ?string $heading = null, int $duration = 5000, ?string $position = null): void
-
-// Error toast (alias)
-$this->flareError(string $text, ?string $heading = null, int $duration = 5000, ?string $position = null): void
-
-// Info toast
-$this->flareInfo(string $text, ?string $heading = null, int $duration = 5000, ?string $position = null): void
+'theme' => 'classic'
 ```
 
-### JavaScript API Methods
+</td>
+<td width="33%" align="center">
 
-```javascript
-// Basic toast
-Flare.toast(text, options)
+### Modern
 
-// Variant methods
-Flare.success(text, options)
-Flare.warning(text, options)
-Flare.danger(text, options)
-Flare.error(text, options)  // Alias for danger
+**Balanced & Contemporary**
+
+Subtle gradients  
+Light blur (4px)  
+2 shadow layers  
+⚡ Fast _(default)_
+
+```php
+'theme' => 'modern'
 ```
 
-**Options Object:**
+</td>
+<td width="33%" align="center">
+
+### Vibrant
+
+**Bold & Colorful**
+
+Strong gradients  
+Glowing shadows  
+Moderate blur (8px)  
+⚡ Good
+
+```php
+'theme' => 'vibrant'
+```
+
+</td>
+</tr>
+</table>
+
+**All themes support light & dark modes automatically.**
+
+---
+
+## 📚 Documentation
+
+### 📖 Complete Documentation
+
+Visit our comprehensive documentation:
+
+- **[Introduction](docs/introduction.md)** - What is Flare?
+- **[Installation](docs/installation.md)** - Detailed setup guide
+- **[Quick Start](docs/quick-start.md)** - Get started in 5 minutes
+- **[Themes](docs/themes.md)** - Visual customization
+- **[Configuration](docs/configuration.md)** - All options explained
+- **[Examples](EXAMPLES.md)** - Real-world scenarios
+
+### 🌐 Interactive Docs
+
+Run the documentation website locally:
+
+```bash
+php -S localhost:8000 -t docs
+```
+
+Visit `http://localhost:8000` for interactive documentation.
+
+---
+
+## 💡 API Reference
+
+### Toast Variants
+
+```php
+Flare::success($text, $heading = null, $duration = 5000, $position = null);
+Flare::warning($text, $heading = null, $duration = 5000, $position = null);
+Flare::danger($text, $heading = null, $duration = 5000, $position = null);
+Flare::error($text, $heading = null, $duration = 5000, $position = null); // Alias
+Flare::info($text, $heading = null, $duration = 5000, $position = null);
+```
+
+### Livewire Trait Methods
+
+```php
+$this->flareSuccess($text, $heading = null, $duration = 5000, $position = null);
+$this->flareWarning($text, $heading = null, $duration = 5000, $position = null);
+$this->flareDanger($text, $heading = null, $duration = 5000, $position = null);
+$this->flareError($text, $heading = null, $duration = 5000, $position = null);
+$this->flareInfo($text, $heading = null, $duration = 5000, $position = null);
+```
+
+### JavaScript API
+
 ```javascript
-{
-    heading: 'Optional Heading',     // Toast title
-    variant: 'success',               // success, warning, danger, info
-    duration: 5000,                   // Duration in ms (0 = persistent)
-    position: 'bottom end'            // Toast position
-}
+Flare.toast(text, options);
+Flare.success(text, options);
+Flare.warning(text, options);
+Flare.danger(text, options);
+Flare.error(text, options);
+Flare.info(text, options);
 ```
 
 ---
 
 ## ⚙️ Configuration
 
-The configuration file `config/flare.php` provides extensive customization options:
+<details>
+<summary><strong>View Complete Configuration</strong></summary>
 
 ```php
 return [
-    /*
-    |--------------------------------------------------------------------------
-    | Default Toast Position
-    |--------------------------------------------------------------------------
-    | Choose where toasts appear on screen.
-    | Options: 'top start', 'top center', 'top end',
-    |          'bottom start', 'bottom center', 'bottom end'
-    */
-    'position' => env('FLARE_POSITION', 'bottom end'),
+    // Visual theme
+    'theme' => 'modern', // classic, modern, vibrant
 
-    /*
-    |--------------------------------------------------------------------------
-    | Default Duration
-    |--------------------------------------------------------------------------
-    | How long toasts remain visible (in milliseconds).
-    | Set to 0 for persistent toasts that must be manually dismissed.
-    */
-    'duration' => env('FLARE_DURATION', 5000),
+    // Default position
+    'position' => 'bottom end',
 
-    /*
-    |--------------------------------------------------------------------------
-    | Maximum Visible Toasts
-    |--------------------------------------------------------------------------
-    | Maximum number of toasts displayed simultaneously.
-    | Additional toasts will be queued.
-    */
-    'max_visible' => env('FLARE_MAX_VISIBLE', 3),
+    // Default duration (ms)
+    'duration' => 5000,
 
-    /*
-    |--------------------------------------------------------------------------
-    | Stack Expanded Mode
-    |--------------------------------------------------------------------------
-    | When true, all toasts are shown expanded.
-    | When false, toasts stack with "X more" indicator.
-    */
-    'stack_expanded' => env('FLARE_STACK_EXPANDED', false),
+    // Stacking behavior
+    'enable_stacking' => true,
+    'stack_expanded' => false,
+    'max_visible' => 3,
 
-    /*
-    |--------------------------------------------------------------------------
-    | Asset Paths
-    |--------------------------------------------------------------------------
-    | Paths to Flare's JavaScript and CSS files.
-    */
-    'asset_path' => env('FLARE_ASSET_PATH', '/vendor/flare/flare.js'),
-    'css_path' => env('FLARE_CSS_PATH', '/vendor/flare/flare.css'),
+    // Features
+    'icons' => ['enabled' => true],
+    'actions' => ['enabled' => true],
+    'priority' => ['enabled' => true],
+    'rate_limit' => ['enabled' => true],
+    'progress_bar' => ['enabled' => true],
 ];
 ```
 
+</details>
+
 ### Environment Variables
 
-You can also configure Flare using `.env` variables:
-
 ```env
-FLARE_POSITION="top center"
-FLARE_DURATION=7000
-FLARE_MAX_VISIBLE=5
-FLARE_STACK_EXPANDED=true
+FLARE_THEME=modern
+FLARE_POSITION="bottom end"
+FLARE_DURATION=5000
+FLARE_ENABLE_STACKING=true
+FLARE_STACK_EXPANDED=false
 ```
 
 ---
 
-## 🎨 Toast Variants
+## 🎯 Examples
 
-Flare provides four beautiful variants for different notification types:
-
-| Variant | Usage | Color | Best For |
-|---------|-------|-------|----------|
-| `success` | `Flare::success()` | 🟢 Green | Successful operations, confirmations |
-| `warning` | `Flare::warning()` | 🟡 Yellow | Warnings, cautionary messages |
-| `danger` | `Flare::danger()` | 🔴 Red | Errors, critical alerts |
-| `info` | `Flare::info()` | 🔵 Blue | Informational messages, tips |
-
-**Examples:**
+### Form Validation
 
 ```php
-// Success - User action completed
-Flare::success('Profile updated successfully!');
-
-// Warning - Important but not critical
-Flare::warning('Your session will expire in 5 minutes');
-
-// Danger - Critical errors
-Flare::danger('Failed to save changes', 'Error');
-
-// Info - Helpful information
-Flare::info('New features are available!');
-```
-
----
-
-## 📍 Toast Positions
-
-Flare supports 6 different positions on the screen:
-
-<div align="center">
-
-```
-┌─────────────────────────────────────┐
-│  top start    top center    top end │
-│                                      │
-│                                      │
-│                                      │
-│ bottom start bottom center bottom end│
-└─────────────────────────────────────┘
-```
-
-</div>
-
-**Available Positions:**
-- `top start` - Top left corner
-- `top center` - Top center
-- `top end` - Top right corner
-- `bottom start` - Bottom left corner
-- `bottom center` - Bottom center
-- `bottom end` - Bottom right corner (default)
-
-**Usage:**
-
-```php
-// Set position globally in config
-'position' => 'top center',
-
-// Or set per-toast
-Flare::success('Message', null, 5000, 'top center');
-$this->flareSuccess('Message', null, 5000, 'top center');
-```
-
----
-
-## ⏱️ Duration & Auto-Dismiss
-
-Control how long toasts remain visible:
-
-```php
-// Default duration (5000ms = 5 seconds)
-Flare::success('Quick message');
-
-// Custom duration (2 seconds)
-Flare::success('Fast message', null, 2000);
-
-// Longer duration (10 seconds)
-Flare::warning('Important warning', null, 10000);
-
-// Persistent toast (never auto-dismiss)
-Flare::danger('Critical error - manual dismiss required', null, 0);
-```
-
-**Features:**
-- ⏸️ Hover over toast to pause auto-dismiss
-- ▶️ Mouse leave resumes the timer
-- 🖱️ Click dismiss button to close manually
-- ⌨️ Use keyboard shortcuts (see below)
-
----
-
-## ⌨️ Keyboard Navigation
-
-Flare includes powerful keyboard shortcuts for better accessibility:
-
-| Shortcut | Action |
-|----------|--------|
-| `Esc` | Dismiss the most recent toast |
-| `Shift + Esc` | Dismiss all toasts |
-| `Alt + D` | Dismiss all toasts (alternative) |
-
-```javascript
-// These work automatically - no configuration needed!
-```
-
----
-
-## 🎯 Advanced Usage
-
-### Stack Management
-
-When multiple toasts are shown, Flare intelligently manages the stack:
-
-```php
-// Show multiple toasts
-Flare::success('First toast');
-Flare::warning('Second toast');
-Flare::info('Third toast');
-Flare::danger('Fourth toast');
-
-// With max_visible = 3, the fourth toast will queue
-// and appear when one of the first three is dismissed
-```
-
-### Custom Component Configuration
-
-Override default settings per component:
-
-```blade
-<!-- Expanded stack with top center position -->
-<livewire:flare-toasts
-    position="top center"
-    :expanded="true"
-/>
-
-<!-- Custom max visible toasts -->
-<x-flare::toast-group
-    position="bottom start"
-    :max-visible="5"
-    :expanded="false"
-/>
-```
-
-### Toast with All Options
-
-```php
-use AlizHarb\Flare\Facades\Flare;
-
-Flare::toast(
-    text: 'Your report has been generated and is ready for download.',
-    heading: 'Report Ready',
-    duration: 10000,
-    variant: 'success',
-    position: 'top center'
-);
-```
-
-### Livewire Example: Form Validation
-
-```php
-use Livewire\Component;
-use AlizHarb\Flare\Concerns\WithFlare;
-
 class ContactForm extends Component
 {
     use WithFlare;
 
-    public $name;
-    public $email;
-    public $message;
-
     public function submit()
     {
-        $validated = $this->validate([
-            'name' => 'required|min:3',
-            'email' => 'required|email',
-            'message' => 'required|min:10',
-        ]);
+        $this->validate([...]);
 
-        // Send email logic here...
+        // Send email...
 
         $this->flareSuccess(
-            'Thank you! We\'ll get back to you soon.',
-            'Message Sent',
-            duration: 7000,
-            position: 'top center'
+            text: "Thank you! We'll get back to you soon.",
+            heading: 'Message Sent',
+            duration: 7000
         );
-
-        $this->reset();
-    }
-
-    public function updated($field)
-    {
-        // Show validation errors as toasts
-        try {
-            $this->validateOnly($field);
-        } catch (\Illuminate\Validation\ValidationException $e) {
-            $error = $e->validator->errors()->first($field);
-            $this->flareWarning($error, 'Validation Error', 4000);
-        }
-    }
-
-    public function render()
-    {
-        return view('livewire.contact-form');
     }
 }
 ```
 
-### Queue Multiple Toasts
+### CRUD Operations
 
 ```php
-// All toasts will be queued and shown progressively
-foreach ($users as $user) {
-    Flare::success("Notification sent to {$user->name}");
+public function destroy(Post $post)
+{
+    $post->delete();
+
+    Flare::danger(
+        text: 'Post has been permanently deleted',
+        heading: 'Deleted',
+        duration: 4000
+    );
+
+    return redirect()->route('posts.index');
 }
 ```
 
-### JavaScript Event Listening
+### Persistent Notifications
 
-```javascript
-// Listen for toast events (advanced use case)
-window.addEventListener('flare-toast-show', (event) => {
-    console.log('Toast triggered:', event.detail);
-
-    // You can track analytics, etc.
-});
+```php
+// Requires manual dismissal
+Flare::danger(
+    text: 'Critical error - please contact support',
+    heading: 'Error',
+    duration: 0 // Never auto-dismiss
+);
 ```
+
+**See [EXAMPLES.md](EXAMPLES.md) for more real-world scenarios.**
 
 ---
 
-## 🎨 Customization
+## ⌨️ Keyboard Shortcuts
 
-### Custom Styles
-
-Publish the views and customize the HTML/CSS:
-
-```bash
-php artisan vendor:publish --tag=flare-views
-```
-
-Edit the published views in `resources/views/vendor/flare/`:
-
-```blade
-<!-- resources/views/vendor/flare/components/toast.blade.php -->
-<!-- Customize the toast HTML structure -->
-```
-
-### Custom CSS
-
-Publish the assets and modify the CSS:
-
-```bash
-php artisan vendor:publish --tag=flare-assets
-```
-
-Edit `public/vendor/flare/flare.css` to match your brand colors.
-
-### Dark Mode Support
-
-Flare automatically adapts to dark mode. You can customize dark mode styles:
-
-```css
-/* Custom dark mode colors */
-@media (prefers-color-scheme: dark) {
-    .flare-toast.success {
-        background: #1a472a;
-        color: #86efac;
-    }
-}
-```
+| Shortcut      | Action                             |
+| ------------- | ---------------------------------- |
+| `Esc`         | Dismiss most recent toast          |
+| `Shift + Esc` | Dismiss all toasts                 |
+| `Alt + D`     | Dismiss all toasts _(alternative)_ |
 
 ---
 
 ## 🧪 Testing
 
-Flare includes a comprehensive test suite using Pest:
+Flare includes a comprehensive test suite:
 
 ```bash
-# Run all tests
+# Run tests
 composer test
 
 # Run tests with coverage
-composer test-coverage
+composer test:coverage
 
 # Run static analysis
 composer analyse
 
-# Format code
+# Run code style fixer
 composer format
 ```
 
-### Writing Tests for Your App
-
-```php
-use AlizHarb\Flare\Facades\Flare;
-
-it('shows success toast on user creation', function () {
-    Flare::shouldReceive('success')
-        ->once()
-        ->with('User created successfully!');
-
-    $this->post('/users', $userData);
-});
-```
-
----
-
-## 🔍 Troubleshooting
-
-### Toasts not appearing?
-
-**1. Check if scripts are loaded:**
-```blade
-<!-- Make sure these are in your layout -->
-@flareScripts
-@flareStyles
-```
-
-**2. Verify the component is present:**
-```blade
-<!-- Should be in your layout, typically before closing body tag -->
-<livewire:flare-toasts />
-```
-
-**3. Check browser console for errors:**
-```javascript
-// Verify Flare is loaded
-console.log(window.Flare);  // Should show object with methods
-```
-
-**4. Ensure Alpine.js is loaded:**
-Livewire 3 includes Alpine.js by default. Verify in browser console:
-```javascript
-console.log(window.Alpine);  // Should be defined
-```
-
-### Styling issues?
-
-Make sure CSS is loaded before custom styles:
-```blade
-@flareStyles
-<!-- Your custom styles here -->
-```
-
-### Toasts appearing in wrong position?
-
-Check your configuration:
-```php
-// config/flare.php
-'position' => 'bottom end',  // Verify this is correct
-```
+**Test Results:** ✅ 12 tests, 22 assertions, 100% passing
 
 ---
 
@@ -796,89 +491,62 @@ We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for deta
 ### Development Setup
 
 ```bash
-# Clone the repository
 git clone https://github.com/alizharb/flare.git
-
-# Install dependencies
+cd flare
 composer install
-
-# Run tests
 composer test
-
-# Run static analysis
-composer analyse
-
-# Format code
-composer format
 ```
-
-### Contribution Guidelines
-
-- ✅ Write tests for new features
-- ✅ Follow PSR-12 coding standards
-- ✅ Update documentation
-- ✅ Ensure all tests pass
-- ✅ Add entries to CHANGELOG.md
 
 ---
 
 ## 📝 Changelog
 
-Please see [CHANGELOG.md](CHANGELOG.md) for recent changes.
+See [CHANGELOG.md](CHANGELOG.md) for all changes and version history.
 
----
+### Latest Release: v1.1.0
 
-## 🔒 Security
-
-If you discover any security-related issues, please email **harbzali@gmail.com** instead of using the issue tracker.
-
----
-
-## 🙏 Credits
-
-- **[Ali Harb](https://github.com/alizharb)** - Creator & Maintainer
-- **[All Contributors](../../contributors)** - Thank you!
-
-### Built With
-
-- [Laravel](https://laravel.com) - The PHP Framework
-- [Livewire](https://livewire.laravel.com) - Full-stack framework for Laravel
-- [Alpine.js](https://alpinejs.dev) - Lightweight JavaScript framework
-- [Tailwind CSS](https://tailwindcss.com) - Utility-first CSS framework (optional)
+- ✨ Three distinct themes (Classic, Modern, Vibrant)
+- 🐛 Fixed all positioning issues
+- ⚡ Improved stacking performance
+- 🌍 Added RTL/LTR support
+- 📚 Complete documentation
 
 ---
 
 ## 📄 License
 
-Flare is open-sourced software licensed under the [MIT license](LICENSE).
+Flare is open-source software licensed under the [MIT License](LICENSE).
 
 ---
 
-## 💖 Support
+## 🙏 Credits
 
-If you find this package helpful, please consider:
+**Built with ❤️ by [Ali Harb](https://github.com/alizharb)**
+
+Special thanks to:
+
+- Laravel & Livewire teams
+- Alpine.js community
+- All contributors
+
+---
+
+## 🌟 Support
+
+If you find Flare useful, please consider:
 
 - ⭐ Starring the repository
-- 🐛 Reporting bugs and issues
-- 💡 Suggesting new features
+- 🐛 Reporting bugs
+- 💡 Suggesting features
 - 📖 Improving documentation
-- 🤝 Contributing code
-
----
-
-## 🔗 Links
-
-- **Documentation**: [Full Documentation](https://github.com/alizharb/flare#readme)
-- **Issues**: [GitHub Issues](https://github.com/alizharb/flare/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/alizharb/flare/discussions)
-- **Changelog**: [Releases](https://github.com/alizharb/flare/releases)
+- 💰 [Sponsoring development](https://github.com/sponsors/alizharb)
 
 ---
 
 <div align="center">
 
-**Made with ❤️ by [Ali Harb](https://github.com/alizharb)**
+**[⬆ Back to Top](#flare)**
 
-If you like this package, please ⭐ star it on [GitHub](https://github.com/alizharb/flare)!
+Made with ❤️ for the Laravel community
 
 </div>

@@ -47,7 +47,7 @@ class TestComponentWithFlare extends Component
 }
 
 test('WithFlare trait can be used in Livewire component', function () {
-    expect(new TestComponentWithFlare())->toBeInstanceOf(Component::class);
+    expect(new TestComponentWithFlare)->toBeInstanceOf(Component::class);
 });
 
 test('flareSuccess dispatches event without errors', function () {

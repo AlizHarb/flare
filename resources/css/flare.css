@@ -1,13 +1,12 @@
 /**
- * Flare Toast Notifications - Advanced CSS
- * Modern, customizable toast notification styles with data attributes
+ * Flare Toast Notifications - Multi-Theme CSS v2.1
+ * Three distinct themes: Classic, Modern, Vibrant
+ * Each with light and dark mode support
  */
 
 /* ===================================
-   CSS Custom Properties (Variables)
+   Universal box-sizing
    =================================== */
-
-/* Universal box-sizing */
 [data-flare-container],
 [data-flare-container] *,
 [data-flare-toast],
@@ -15,32 +14,10 @@
   box-sizing: border-box;
 }
 
+/* ===================================
+   Base Variables (All Themes)
+   =================================== */
 :root {
-  /* Light mode colors */
-  --flare-bg: #ffffff;
-  --flare-text: #18181b;
-  --flare-text-secondary: #52525b;
-  --flare-border: #e4e4e7;
-  --flare-shadow: rgba(0, 0, 0, 0.1);
-  --flare-shadow-lg: rgba(0, 0, 0, 0.15);
-
-  /* Toast variant colors - Light mode */
-  --flare-success: #22c55e;
-  --flare-success-bg: #f0fdf4;
-  --flare-success-border: #bbf7d0;
-
-  --flare-warning: #f59e0b;
-  --flare-warning-bg: #fffbeb;
-  --flare-warning-border: #fde68a;
-
-  --flare-danger: #ef4444;
-  --flare-danger-bg: #fef2f2;
-  --flare-danger-border: #fecaca;
-
-  --flare-info: #3b82f6;
-  --flare-info-bg: #eff6ff;
-  --flare-info-border: #bfdbfe;
-
   /* Spacing and sizing */
   --flare-spacing: 1.5rem;
   --flare-toast-width: 24rem;
@@ -53,54 +30,247 @@
   --flare-transition-normal: 200ms;
   --flare-transition-slow: 300ms;
 
-  /* Z-index */
-  --flare-z-index: 9999;
+  /* Z-index - Tailwind standard */
+  --flare-z-index: 50;
 }
 
-/* Dark mode variables */
+/* ===================================
+   THEME: CLASSIC
+   =================================== */
+[data-flare-container][data-theme="classic"] {
+  /* Light mode */
+  --flare-bg: #ffffff;
+  --flare-text: #111827;
+  --flare-text-secondary: #6b7280;
+  --flare-border: #e5e7eb;
+  --flare-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+
+  /* Variants - Light */
+  --flare-success: #10b981;
+  --flare-success-bg: #f0fdf4;
+  --flare-success-border: #86efac;
+
+  --flare-warning: #f59e0b;
+  --flare-warning-bg: #fffbeb;
+  --flare-warning-border: #fcd34d;
+
+  --flare-danger: #ef4444;
+  --flare-danger-bg: #fef2f2;
+  --flare-danger-border: #fca5a5;
+
+  --flare-info: #3b82f6;
+  --flare-info-bg: #eff6ff;
+  --flare-info-border: #93c5fd;
+}
+
 @media (prefers-color-scheme: dark) {
-  :root {
-    --flare-bg: #27272a;
-    --flare-text: #fafafa;
-    --flare-text-secondary: #a1a1aa;
-    --flare-border: #3f3f46;
-    --flare-shadow: rgba(0, 0, 0, 0.3);
-    --flare-shadow-lg: rgba(0, 0, 0, 0.5);
+  [data-flare-container][data-theme="classic"] {
+    --flare-bg: #1f2937;
+    --flare-text: #f9fafb;
+    --flare-text-secondary: #9ca3af;
+    --flare-border: #374151;
+    --flare-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
 
-    --flare-success-bg: #052e16;
-    --flare-success-border: #166534;
+    --flare-success-bg: #064e3b;
+    --flare-success-border: #059669;
 
-    --flare-warning-bg: #451a03;
-    --flare-warning-border: #92400e;
+    --flare-warning-bg: #78350f;
+    --flare-warning-border: #d97706;
 
-    --flare-danger-bg: #450a0a;
-    --flare-danger-border: #991b1b;
+    --flare-danger-bg: #7f1d1d;
+    --flare-danger-border: #dc2626;
 
     --flare-info-bg: #1e3a8a;
-    --flare-info-border: #1e40af;
+    --flare-info-border: #2563eb;
   }
 }
 
-/* Dark mode class override (for Tailwind dark mode) */
-.dark {
-  --flare-bg: #27272a;
+.dark [data-flare-container][data-theme="classic"] {
+  --flare-bg: #1f2937;
+  --flare-text: #f9fafb;
+  --flare-text-secondary: #9ca3af;
+  --flare-border: #374151;
+  --flare-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+
+  --flare-success-bg: #064e3b;
+  --flare-success-border: #059669;
+
+  --flare-warning-bg: #78350f;
+  --flare-warning-border: #d97706;
+
+  --flare-danger-bg: #7f1d1d;
+  --flare-danger-border: #dc2626;
+
+  --flare-info-bg: #1e3a8a;
+  --flare-info-border: #2563eb;
+}
+
+/* ===================================
+   THEME: MODERN
+   =================================== */
+[data-flare-container][data-theme="modern"] {
+  /* Light mode */
+  --flare-bg: rgba(255, 255, 255, 0.98);
+  --flare-text: #0f172a;
+  --flare-text-secondary: #64748b;
+  --flare-border: rgba(226, 232, 240, 0.8);
+  --flare-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --flare-blur: 4px;
+
+  /* Variants - Light */
+  --flare-success: #10b981;
+  --flare-success-bg: linear-gradient(135deg, #ecfdf5 0%, rgba(255, 255, 255, 0.98) 100%);
+  --flare-success-border: rgba(167, 243, 208, 0.5);
+  --flare-success-shadow: rgba(16, 185, 129, 0.15);
+
+  --flare-warning: #f59e0b;
+  --flare-warning-bg: linear-gradient(135deg, #fffbeb 0%, rgba(255, 255, 255, 0.98) 100%);
+  --flare-warning-border: rgba(253, 224, 71, 0.5);
+  --flare-warning-shadow: rgba(245, 158, 11, 0.15);
+
+  --flare-danger: #ef4444;
+  --flare-danger-bg: linear-gradient(135deg, #fef2f2 0%, rgba(255, 255, 255, 0.98) 100%);
+  --flare-danger-border: rgba(252, 165, 165, 0.5);
+  --flare-danger-shadow: rgba(239, 68, 68, 0.15);
+
+  --flare-info: #3b82f6;
+  --flare-info-bg: linear-gradient(135deg, #eff6ff 0%, rgba(255, 255, 255, 0.98) 100%);
+  --flare-info-border: rgba(147, 197, 253, 0.5);
+  --flare-info-shadow: rgba(59, 130, 246, 0.15);
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-flare-container][data-theme="modern"] {
+    --flare-bg: rgba(30, 41, 59, 0.98);
+    --flare-text: #f1f5f9;
+    --flare-text-secondary: #94a3b8;
+    --flare-border: rgba(51, 65, 85, 0.8);
+    --flare-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
+
+    --flare-success-bg: linear-gradient(135deg, rgba(6, 78, 59, 0.6) 0%, rgba(30, 41, 59, 0.98) 100%);
+    --flare-success-border: rgba(34, 197, 94, 0.3);
+    --flare-success-shadow: rgba(16, 185, 129, 0.2);
+
+    --flare-warning-bg: linear-gradient(135deg, rgba(120, 53, 15, 0.6) 0%, rgba(30, 41, 59, 0.98) 100%);
+    --flare-warning-border: rgba(245, 158, 11, 0.3);
+    --flare-warning-shadow: rgba(245, 158, 11, 0.2);
+
+    --flare-danger-bg: linear-gradient(135deg, rgba(127, 29, 29, 0.6) 0%, rgba(30, 41, 59, 0.98) 100%);
+    --flare-danger-border: rgba(239, 68, 68, 0.3);
+    --flare-danger-shadow: rgba(239, 68, 68, 0.2);
+
+    --flare-info-bg: linear-gradient(135deg, rgba(30, 58, 138, 0.6) 0%, rgba(30, 41, 59, 0.98) 100%);
+    --flare-info-border: rgba(59, 130, 246, 0.3);
+    --flare-info-shadow: rgba(59, 130, 246, 0.2);
+  }
+}
+
+.dark [data-flare-container][data-theme="modern"] {
+  --flare-bg: rgba(30, 41, 59, 0.98);
+  --flare-text: #f1f5f9;
+  --flare-text-secondary: #94a3b8;
+  --flare-border: rgba(51, 65, 85, 0.8);
+  --flare-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
+
+  --flare-success-bg: linear-gradient(135deg, rgba(6, 78, 59, 0.6) 0%, rgba(30, 41, 59, 0.98) 100%);
+  --flare-success-border: rgba(34, 197, 94, 0.3);
+  --flare-success-shadow: rgba(16, 185, 129, 0.2);
+
+  --flare-warning-bg: linear-gradient(135deg, rgba(120, 53, 15, 0.6) 0%, rgba(30, 41, 59, 0.98) 100%);
+  --flare-warning-border: rgba(245, 158, 11, 0.3);
+  --flare-warning-shadow: rgba(245, 158, 11, 0.2);
+
+  --flare-danger-bg: linear-gradient(135deg, rgba(127, 29, 29, 0.6) 0%, rgba(30, 41, 59, 0.98) 100%);
+  --flare-danger-border: rgba(239, 68, 68, 0.3);
+  --flare-danger-shadow: rgba(239, 68, 68, 0.2);
+
+  --flare-info-bg: linear-gradient(135deg, rgba(30, 58, 138, 0.6) 0%, rgba(30, 41, 59, 0.98) 100%);
+  --flare-info-border: rgba(59, 130, 246, 0.3);
+  --flare-info-shadow: rgba(59, 130, 246, 0.2);
+}
+
+/* ===================================
+   THEME: VIBRANT
+   =================================== */
+[data-flare-container][data-theme="vibrant"] {
+  /* Light mode */
+  --flare-bg: #ffffff;
+  --flare-text: #18181b;
+  --flare-text-secondary: #52525b;
+  --flare-border: #e4e4e7;
+  --flare-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --flare-blur: 8px;
+
+  /* Variants - Light */
+  --flare-success: #10b981;
+  --flare-success-bg: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+  --flare-success-border: #6ee7b7;
+  --flare-success-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+
+  --flare-warning: #f59e0b;
+  --flare-warning-bg: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  --flare-warning-border: #fcd34d;
+  --flare-warning-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+
+  --flare-danger: #ef4444;
+  --flare-danger-bg: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+  --flare-danger-border: #fca5a5;
+  --flare-danger-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+
+  --flare-info: #3b82f6;
+  --flare-info-bg: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+  --flare-info-border: #93c5fd;
+  --flare-info-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-flare-container][data-theme="vibrant"] {
+    --flare-bg: #18181b;
+    --flare-text: #fafafa;
+    --flare-text-secondary: #a1a1aa;
+    --flare-border: #3f3f46;
+    --flare-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+
+    --flare-success-bg: linear-gradient(135deg, #065f46 0%, #047857 100%);
+    --flare-success-border: #10b981;
+    --flare-success-shadow: 0 0 25px rgba(16, 185, 129, 0.5);
+
+    --flare-warning-bg: linear-gradient(135deg, #92400e 0%, #b45309 100%);
+    --flare-warning-border: #f59e0b;
+    --flare-warning-shadow: 0 0 25px rgba(245, 158, 11, 0.5);
+
+    --flare-danger-bg: linear-gradient(135deg, #991b1b 0%, #b91c1c 100%);
+    --flare-danger-border: #ef4444;
+    --flare-danger-shadow: 0 0 25px rgba(239, 68, 68, 0.5);
+
+    --flare-info-bg: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+    --flare-info-border: #3b82f6;
+    --flare-info-shadow: 0 0 25px rgba(59, 130, 246, 0.5);
+  }
+}
+
+.dark [data-flare-container][data-theme="vibrant"] {
+  --flare-bg: #18181b;
   --flare-text: #fafafa;
   --flare-text-secondary: #a1a1aa;
   --flare-border: #3f3f46;
-  --flare-shadow: rgba(0, 0, 0, 0.3);
-  --flare-shadow-lg: rgba(0, 0, 0, 0.5);
+  --flare-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
 
-  --flare-success-bg: #052e16;
-  --flare-success-border: #166534;
+  --flare-success-bg: linear-gradient(135deg, #065f46 0%, #047857 100%);
+  --flare-success-border: #10b981;
+  --flare-success-shadow: 0 0 25px rgba(16, 185, 129, 0.5);
 
-  --flare-warning-bg: #451a03;
-  --flare-warning-border: #92400e;
+  --flare-warning-bg: linear-gradient(135deg, #92400e 0%, #b45309 100%);
+  --flare-warning-border: #f59e0b;
+  --flare-warning-shadow: 0 0 25px rgba(245, 158, 11, 0.5);
 
-  --flare-danger-bg: #450a0a;
-  --flare-danger-border: #991b1b;
+  --flare-danger-bg: linear-gradient(135deg, #991b1b 0%, #b91c1c 100%);
+  --flare-danger-border: #ef4444;
+  --flare-danger-shadow: 0 0 25px rgba(239, 68, 68, 0.5);
 
-  --flare-info-bg: #1e3a8a;
-  --flare-info-border: #1e40af;
+  --flare-info-bg: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+  --flare-info-border: #3b82f6;
+  --flare-info-shadow: 0 0 25px rgba(59, 130, 246, 0.5);
 }
 
 /* ===================================
@@ -109,20 +279,18 @@
 [data-flare-container] {
   position: fixed;
   z-index: var(--flare-z-index);
-  pointer-events: auto;
+  pointer-events: none;
   display: flex;
   flex-direction: column;
   gap: 0;
   padding: var(--flare-spacing);
-  max-height: calc(100vh - 2rem);
-  overflow-x: hidden;
-  overflow-y: visible;
+  max-height: calc(100vh - 3rem);
+  overflow: visible;
   width: var(--flare-toast-width);
-  max-width: calc(100vw - 3rem);
-  box-sizing: border-box;
+  max-width: var(--flare-toast-max-width);
 }
 
-/* Position variants */
+/* Position variants - Standard positioning with RTL support */
 [data-flare-container][data-position="top-start"] {
   top: 0;
   left: 0;
@@ -155,6 +323,23 @@
   right: 0;
 }
 
+/* RTL support - flip start/end positions */
+[dir="rtl"] [data-flare-container][data-position="top-start"],
+[dir="rtl"] [data-flare-container][data-position="bottom-start"] {
+  left: auto;
+  right: 0;
+}
+
+[dir="rtl"] [data-flare-container][data-position="top-end"],
+[dir="rtl"] [data-flare-container][data-position="bottom-end"] {
+  right: auto;
+  left: 0;
+}
+
+[dir="rtl"] [data-flare-container][data-position*="center"] {
+  transform: translateX(50%);
+}
+
 /* ===================================
    Toast Card Styles
    =================================== */
@@ -165,65 +350,130 @@
   background: var(--flare-bg);
   border: 1px solid var(--flare-border);
   border-radius: var(--flare-border-radius);
-  box-shadow: 0 10px 15px -3px var(--flare-shadow),
-              0 4px 6px -4px var(--flare-shadow-lg);
+  box-shadow: var(--flare-shadow);
   overflow: hidden;
   transition: all var(--flare-transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
-
-  /* GPU acceleration for better performance */
   transform: translateZ(0);
   backface-visibility: hidden;
   -webkit-font-smoothing: subpixel-antialiased;
-
-  /* Accessibility */
   outline: none;
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Hover effects - only in expanded mode */
-[data-flare-container][data-expanded="true"] [data-flare-toast]:hover {
-  transform: translateY(-2px) translateZ(0);
-  box-shadow: 0 20px 25px -5px var(--flare-shadow),
-              0 8px 10px -6px var(--flare-shadow-lg);
+/* Modern theme blur */
+[data-flare-container][data-theme="modern"] [data-flare-toast] {
+  backdrop-filter: blur(var(--flare-blur));
+  -webkit-backdrop-filter: blur(var(--flare-blur));
 }
 
-/* Focus styles for keyboard navigation */
+/* Vibrant theme blur */
+[data-flare-container][data-theme="vibrant"] [data-flare-toast] {
+  backdrop-filter: blur(var(--flare-blur));
+  -webkit-backdrop-filter: blur(var(--flare-blur));
+}
+
+/* Hover effects */
+[data-flare-container][data-expanded="true"] [data-flare-toast]:hover {
+  transform: translateY(-2px) translateZ(0);
+}
+
+/* Classic theme hover */
+[data-flare-container][data-theme="classic"][data-expanded="true"] [data-flare-toast]:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15);
+}
+
+/* Modern theme hover */
+[data-flare-container][data-theme="modern"][data-expanded="true"] [data-flare-toast]:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+/* Vibrant theme hover */
+[data-flare-container][data-theme="vibrant"][data-expanded="true"] [data-flare-toast]:hover {
+  transform: translateY(-4px) scale(1.02) translateZ(0);
+}
+
+/* Focus styles */
 [data-flare-toast]:focus {
   outline: 2px solid var(--flare-info);
   outline-offset: 2px;
 }
 
-/* Toast variants */
-[data-flare-toast][data-variant="success"] {
+/* Toast variants - Classic theme (solid backgrounds) */
+[data-flare-container][data-theme="classic"] [data-flare-toast][data-variant="success"] {
   background: var(--flare-success-bg);
   border-color: var(--flare-success-border);
 }
 
-[data-flare-toast][data-variant="warning"] {
+[data-flare-container][data-theme="classic"] [data-flare-toast][data-variant="warning"] {
   background: var(--flare-warning-bg);
   border-color: var(--flare-warning-border);
 }
 
-[data-flare-toast][data-variant="danger"] {
+[data-flare-container][data-theme="classic"] [data-flare-toast][data-variant="danger"] {
   background: var(--flare-danger-bg);
   border-color: var(--flare-danger-border);
 }
 
-[data-flare-toast][data-variant="info"] {
+[data-flare-container][data-theme="classic"] [data-flare-toast][data-variant="info"] {
   background: var(--flare-info-bg);
   border-color: var(--flare-info-border);
 }
 
-/* Paused state (when hovering) */
-[data-flare-toast][data-paused="true"] {
-  transform: scale(1.02);
+/* Toast variants - Modern theme (gradient backgrounds) */
+[data-flare-container][data-theme="modern"] [data-flare-toast][data-variant="success"] {
+  background: var(--flare-success-bg);
+  border-color: var(--flare-success-border);
+  box-shadow: var(--flare-shadow), 0 0 0 1px var(--flare-success-border);
+}
+
+[data-flare-container][data-theme="modern"] [data-flare-toast][data-variant="warning"] {
+  background: var(--flare-warning-bg);
+  border-color: var(--flare-warning-border);
+  box-shadow: var(--flare-shadow), 0 0 0 1px var(--flare-warning-border);
+}
+
+[data-flare-container][data-theme="modern"] [data-flare-toast][data-variant="danger"] {
+  background: var(--flare-danger-bg);
+  border-color: var(--flare-danger-border);
+  box-shadow: var(--flare-shadow), 0 0 0 1px var(--flare-danger-border);
+}
+
+[data-flare-container][data-theme="modern"] [data-flare-toast][data-variant="info"] {
+  background: var(--flare-info-bg);
+  border-color: var(--flare-info-border);
+  box-shadow: var(--flare-shadow), 0 0 0 1px var(--flare-info-border);
+}
+
+/* Toast variants - Vibrant theme (bold gradients + glow) */
+[data-flare-container][data-theme="vibrant"] [data-flare-toast][data-variant="success"] {
+  background: var(--flare-success-bg);
+  border-color: var(--flare-success-border);
+  box-shadow: var(--flare-shadow), var(--flare-success-shadow);
+}
+
+[data-flare-container][data-theme="vibrant"] [data-flare-toast][data-variant="warning"] {
+  background: var(--flare-warning-bg);
+  border-color: var(--flare-warning-border);
+  box-shadow: var(--flare-shadow), var(--flare-warning-shadow);
+}
+
+[data-flare-container][data-theme="vibrant"] [data-flare-toast][data-variant="danger"] {
+  background: var(--flare-danger-bg);
+  border-color: var(--flare-danger-border);
+  box-shadow: var(--flare-shadow), var(--flare-danger-shadow);
+}
+
+[data-flare-container][data-theme="vibrant"] [data-flare-toast][data-variant="info"] {
+  background: var(--flare-info-bg);
+  border-color: var(--flare-info-border);
+  box-shadow: var(--flare-shadow), var(--flare-info-shadow);
 }
 
 /* ===================================
    Toast Content
    =================================== */
 [data-flare-content] {
-  padding: 1rem;
+  padding: 1rem 1.125rem;
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
@@ -242,7 +492,7 @@
   height: 100%;
 }
 
-/* Icon colors by variant */
+/* Icon colors */
 [data-flare-icon][data-variant="success"] {
   color: var(--flare-success);
 }
@@ -280,7 +530,6 @@
   word-wrap: break-word;
 }
 
-/* When there's no heading, make message more prominent */
 [data-flare-message]:only-child {
   color: var(--flare-text);
   font-weight: 500;
@@ -332,12 +581,10 @@
 /* ===================================
    Animations
    =================================== */
-
-/* Slide in from top */
 @keyframes flare-slide-in-top {
   from {
     opacity: 0;
-    transform: translateY(-100%) scale(0.9);
+    transform: translateY(-100%) scale(0.95);
   }
   to {
     opacity: 1;
@@ -345,11 +592,10 @@
   }
 }
 
-/* Slide in from bottom */
 @keyframes flare-slide-in-bottom {
   from {
     opacity: 0;
-    transform: translateY(100%) scale(0.9);
+    transform: translateY(100%) scale(0.95);
   }
   to {
     opacity: 1;
@@ -357,31 +603,6 @@
   }
 }
 
-/* Slide in from left */
-@keyframes flare-slide-in-left {
-  from {
-    opacity: 0;
-    transform: translateX(-100%) scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-  }
-}
-
-/* Slide in from right */
-@keyframes flare-slide-in-right {
-  from {
-    opacity: 0;
-    transform: translateX(100%) scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-  }
-}
-
-/* Fade out */
 @keyframes flare-fade-out {
   from {
     opacity: 1;
@@ -393,13 +614,12 @@
   }
 }
 
-/* Apply animations based on position */
 [data-flare-container][data-position^="top"] [data-flare-toast][data-state="entering"] {
-  animation: flare-slide-in-top var(--flare-transition-slow) ease-out;
+  animation: flare-slide-in-top var(--flare-transition-slow) cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 [data-flare-container][data-position^="bottom"] [data-flare-toast][data-state="entering"] {
-  animation: flare-slide-in-bottom var(--flare-transition-slow) ease-out;
+  animation: flare-slide-in-bottom var(--flare-transition-slow) cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 [data-flare-toast][data-state="leaving"] {
@@ -407,248 +627,85 @@
 }
 
 /* ===================================
-   Responsive Design
+   Stacking Mode
    =================================== */
-
-/* Mobile devices */
-@media (max-width: 640px) {
-  :root {
-    --flare-spacing: 0.5rem;
-    --flare-toast-width: calc(100vw - 1rem);
-  }
-
-  [data-flare-container] {
-    left: 0.5rem !important;
-    right: 0.5rem !important;
-    bottom: 0.5rem !important;
-    top: auto !important;
-    transform: none !important;
-    padding: 0;
-    max-width: calc(100vw - 1rem);
-    width: calc(100vw - 1rem);
-  }
-
-  [data-flare-container][data-position*="top"] {
-    top: 0.5rem !important;
-    bottom: auto !important;
-  }
-
-  [data-flare-container][data-expanded="false"] {
-    min-height: 100px;
-    max-height: 130px;
-    width: calc(100vw - 1rem);
-    max-width: calc(100vw - 1rem);
-  }
-
-  [data-flare-container][data-expanded="true"] {
-    max-height: calc(100vh - 1rem);
-    width: calc(100vw - 1rem);
-    max-width: calc(100vw - 1rem);
-  }
-
-  /* Adjust stacking for mobile */
-  [data-flare-container][data-expanded="false"] [data-flare-toast] {
-    left: 0.5rem;
-    right: 0.5rem;
-    width: calc(100% - 1rem);
-    max-width: calc(100% - 1rem);
-  }
-
-  [data-flare-toast] {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  [data-flare-content] {
-    padding: 0.875rem;
-    gap: 0.5rem;
-  }
-
-  [data-flare-heading] {
-    font-size: 0.8125rem;
-  }
-
-  [data-flare-message] {
-    font-size: 0.8125rem;
-  }
-
-  [data-flare-icon] {
-    width: 1rem;
-    height: 1rem;
-  }
-
-  [data-flare-close] {
-    width: 1.75rem;
-    height: 1.75rem;
-  }
-}
-
-/* Tablet devices */
-@media (min-width: 641px) and (max-width: 1024px) {
-  :root {
-    --flare-toast-width: 20rem;
-  }
-}
-
-/* Reduce motion for accessibility */
-@media (prefers-reduced-motion: reduce) {
-  [data-flare-toast],
-  [data-flare-close] {
-    transition: none;
-  }
-
-  [data-flare-toast][data-state="entering"],
-  [data-flare-toast][data-state="leaving"] {
-    animation: none;
-  }
-
-  [data-flare-toast]:hover {
-    transform: none;
-  }
-}
-
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-  [data-flare-toast] {
-    border-width: 2px;
-  }
-
-  [data-flare-close]:focus {
-    outline-width: 3px;
-  }
-}
-
-/* ===================================
-   Expand Toggle Button
-   =================================== */
-[data-flare-expand-toggle] {
-  cursor: pointer;
-  pointer-events: auto;
-  margin-bottom: 0.75rem;
-  width: 100%;
-  max-width: var(--flare-toast-max-width);
-}
-
-[data-flare-expand-toggle] button {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-}
-
-[data-flare-expand-toggle] button::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  transform: translate(-50%, -50%);
-  transition: width 0.6s, height 0.6s;
-}
-
-[data-flare-expand-toggle] button:hover::before {
-  width: 300px;
-  height: 300px;
-}
-
-/* ===================================
-   Stack mode (for multiple toasts)
-   =================================== */
-
-/* ===================================
-   Collapsed/Stacked Mode
-   =================================== */
-[data-flare-container][data-expanded="false"] {
-  position: fixed !important;
+[data-flare-container][data-stacking="true"][data-expanded="false"] {
   display: block !important;
   min-height: 140px;
   max-height: 160px;
-  width: var(--flare-toast-width);
-  max-width: calc(100vw - 3rem);
-  transition: all 0.25s ease-out;
   overflow: visible;
-  padding: var(--flare-spacing);
-  pointer-events: auto;
 }
 
-/* Create a positioned context for absolute children */
-[data-flare-container][data-expanded="false"]::before {
-  content: '';
-  position: absolute;
-  inset: -20px;
-  pointer-events: auto;
-  z-index: -1;
-}
-
-/* Hide toasts beyond the max visible count in collapsed mode */
-[data-flare-container][data-expanded="false"] [data-flare-toast]:not(:nth-last-child(-n+3)) {
+[data-flare-container][data-stacking="true"][data-expanded="false"] [data-flare-toast]:not(:nth-last-child(-n+3)) {
   display: none !important;
 }
 
-/* Stack the visible toasts with absolute positioning */
-[data-flare-container][data-expanded="false"] [data-flare-toast] {
+[data-flare-container][data-stacking="true"][data-expanded="false"] [data-flare-toast] {
   position: absolute !important;
   bottom: 0;
   left: var(--flare-spacing);
   right: var(--flare-spacing);
   width: calc(100% - (var(--flare-spacing) * 2));
-  max-width: calc(100% - (var(--flare-spacing) * 2));
   margin: 0;
   transform-origin: bottom center;
-  transition: transform 0.2s ease-out, opacity 0.2s ease-out, filter 0.15s ease-out;
-  pointer-events: auto;
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1), 
+              filter 0.1s ease-out;
+  will-change: transform, opacity;
 }
 
-/* Third from last (bottom of stack) - most blurred */
-[data-flare-container][data-expanded="false"] [data-flare-toast]:nth-last-child(3) {
+[data-flare-container][data-position^="top"][data-stacking="true"][data-expanded="false"] [data-flare-toast] {
+  bottom: auto;
+  top: 0;
+  transform-origin: top center;
+}
+
+[data-flare-container][data-stacking="true"][data-expanded="false"] [data-flare-toast]:nth-last-child(3) {
   transform: translateY(0) scale(0.92) translateZ(0) !important;
   opacity: 0.6 !important;
-  pointer-events: auto !important;
-  filter: blur(1.5px) !important;
+  filter: blur(1px) !important;
   z-index: 1 !important;
 }
 
-/* Second from last (middle of stack) */
-[data-flare-container][data-expanded="false"] [data-flare-toast]:nth-last-child(2) {
+[data-flare-container][data-stacking="true"][data-expanded="false"] [data-flare-toast]:nth-last-child(2) {
   transform: translateY(-10px) scale(0.96) translateZ(0) !important;
   opacity: 0.8 !important;
-  pointer-events: auto !important;
   filter: blur(0.5px) !important;
   z-index: 2 !important;
 }
 
-/* Last (top of stack) - fully visible and interactive */
-[data-flare-container][data-expanded="false"] [data-flare-toast]:last-child {
+[data-flare-container][data-stacking="true"][data-expanded="false"] [data-flare-toast]:last-child {
   transform: translateY(-20px) scale(1) translateZ(0) !important;
   opacity: 1 !important;
-  pointer-events: auto !important;
   filter: none !important;
   z-index: 3 !important;
 }
 
+[data-flare-container][data-position^="top"][data-stacking="true"][data-expanded="false"] [data-flare-toast]:nth-last-child(2) {
+  transform: translateY(10px) scale(0.96) translateZ(0) !important;
+}
+
+[data-flare-container][data-position^="top"][data-stacking="true"][data-expanded="false"] [data-flare-toast]:last-child {
+  transform: translateY(20px) scale(1) translateZ(0) !important;
+}
+
 /* ===================================
-   Expanded Mode - All Toasts Visible
+   Expanded Mode
    =================================== */
 [data-flare-container][data-expanded="true"] {
-  position: fixed !important;
   display: flex !important;
   flex-direction: column !important;
-  transition: all 0.2s ease-out;
   min-height: auto;
-  max-height: calc(100vh - 2rem);
-  gap: 0.75rem;
+  max-height: calc(100vh - 3rem);
+  gap: 0.75rem !important;
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
   scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
-  pointer-events: auto;
-  padding: var(--flare-spacing);
+  transition: gap 0.2s ease-out;
 }
 
-/* Custom scrollbar for webkit browsers */
 [data-flare-container][data-expanded="true"]::-webkit-scrollbar {
   width: 6px;
 }
@@ -662,47 +719,88 @@
   border-radius: 3px;
 }
 
-[data-flare-container][data-expanded="true"]::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.3);
+.dark [data-flare-container][data-expanded="true"]::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
 }
 
 [data-flare-container][data-expanded="true"] [data-flare-toast] {
   position: relative !important;
   opacity: 1 !important;
   transform: translateY(0) scale(1) translateZ(0) !important;
-  pointer-events: auto !important;
   filter: none !important;
-  margin-bottom: 0 !important;
   z-index: auto !important;
-  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
-  visibility: visible !important;
+  margin-bottom: 0 !important;
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* No stacking mode */
+[data-flare-container][data-stacking="false"] {
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: auto;
+  max-height: calc(100vh - 3rem);
+  gap: 0.75rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+[data-flare-container][data-stacking="false"] [data-flare-toast] {
+  position: relative !important;
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) translateZ(0) !important;
+  filter: none !important;
 }
 
 /* ===================================
-   Keyboard navigation indicators
+   Responsive Design
    =================================== */
-[data-flare-toast][data-keyboard-focused="true"]::before {
-  content: '';
-  position: absolute;
-  inset: -4px;
-  border: 2px solid var(--flare-info);
-  border-radius: calc(var(--flare-border-radius) + 4px);
-  pointer-events: none;
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+@media (max-width: 640px) {
+  :root {
+    --flare-spacing: 0.75rem;
+    --flare-toast-width: calc(100vw - 1.5rem);
+  }
+
+  [data-flare-container] {
+    left: 0.75rem !important;
+    right: 0.75rem !important;
+    bottom: 0.75rem !important;
+    top: auto !important;
+    transform: none !important;
+    padding: 0;
+    width: calc(100vw - 1.5rem);
+  }
+
+  [data-flare-container][data-position*="top"] {
+    top: 0.75rem !important;
+    bottom: auto !important;
+  }
+
+  [data-flare-content] {
+    padding: 0.875rem 1rem;
+  }
 }
 
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  [data-flare-toast],
+  [data-flare-close] {
+    transition: none;
   }
-  50% {
-    opacity: 0.5;
+
+  [data-flare-toast][data-state="entering"],
+  [data-flare-toast][data-state="leaving"] {
+    animation: none;
   }
 }
 
-/* ===================================
-   Print styles
-   =================================== */
+@media (prefers-contrast: high) {
+  [data-flare-toast] {
+    border-width: 2px;
+  }
+}
+
+/* Print */
 @media print {
   [data-flare-container] {
     display: none !important;

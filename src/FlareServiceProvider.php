@@ -26,7 +26,7 @@ final class FlareServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->singleton('flare', fn($app) => new FlareManager());
+        $this->app->singleton('flare', fn ($app) => new FlareManager);
 
         $this->app->alias('flare', FlareManager::class);
 
@@ -62,12 +62,12 @@ final class FlareServiceProvider extends ServiceProvider
     /**
      * Register Blade components used by Flare.
      *
-     * Registers individual toast and toast group Blade components.
+     * Registers individual toast and toasts wrapper Blade components.
      */
     protected function registerBladeComponents(): void
     {
         Blade::component('flare::toast', \AlizHarb\Flare\View\Components\Toast::class);
-        Blade::component('flare::toast.group', \AlizHarb\Flare\View\Components\ToastGroup::class);
+        Blade::component('flare::toasts', \AlizHarb\Flare\View\Components\Toasts::class);
     }
 
     /**
@@ -77,9 +77,9 @@ final class FlareServiceProvider extends ServiceProvider
      */
     protected function registerBladeDirectives(): void
     {
-        Blade::directive('flareScripts', fn() => "<?php echo app('flare')->scripts(); ?>");
+        Blade::directive('flareScripts', fn () => "<?php echo app('flare')->scripts(); ?>");
 
-        Blade::directive('flareStyles', fn() => "<?php echo app('flare')->styles(); ?>");
+        Blade::directive('flareStyles', fn () => "<?php echo app('flare')->styles(); ?>");
     }
 
     /**
@@ -99,8 +99,8 @@ final class FlareServiceProvider extends ServiceProvider
             ], 'flare-views');
 
             $this->publishes([
-                __DIR__.'/../resources/js' => public_path('vendor/flare'),
-                __DIR__.'/../resources/css' => public_path('vendor/flare'),
+                __DIR__.'/../resources/js' => public_path('vendor/alizharb/flare'),
+                __DIR__.'/../resources/css' => public_path('vendor/alizharb/flare'),
             ], 'flare-assets');
         }
 

@@ -5,7 +5,7 @@ declare(strict_types=1);
 use AlizHarb\Flare\FlareManager;
 
 test('can instantiate FlareManager', function () {
-    $manager = new FlareManager();
+    $manager = new FlareManager;
 
     expect($manager)->toBeInstanceOf(FlareManager::class);
 });
@@ -13,7 +13,7 @@ test('can instantiate FlareManager', function () {
 test('generates correct script tag', function () {
     config(['flare.asset_path' => '/vendor/flare/flare.js']);
 
-    $manager = new FlareManager();
+    $manager = new FlareManager;
     $scripts = $manager->scripts();
 
     expect($scripts)->toContain('<script')
@@ -25,7 +25,7 @@ test('generates correct script tag', function () {
 test('generates correct style tag', function () {
     config(['flare.css_path' => '/vendor/flare/flare.css']);
 
-    $manager = new FlareManager();
+    $manager = new FlareManager;
     $styles = $manager->styles();
 
     expect($styles)->toContain('<link')
@@ -34,20 +34,20 @@ test('generates correct style tag', function () {
 });
 
 test('toast methods do not throw errors', function () {
-    $manager = new FlareManager();
+    $manager = new FlareManager;
 
-    expect(fn() => $manager->toast('Test message'))->not->toThrow(Exception::class);
-    expect(fn() => $manager->success('Success message'))->not->toThrow(Exception::class);
-    expect(fn() => $manager->warning('Warning message'))->not->toThrow(Exception::class);
-    expect(fn() => $manager->danger('Danger message'))->not->toThrow(Exception::class);
-    expect(fn() => $manager->error('Error message'))->not->toThrow(Exception::class);
-    expect(fn() => $manager->info('Info message'))->not->toThrow(Exception::class);
+    expect(fn () => $manager->toast('Test message'))->not->toThrow(Exception::class);
+    expect(fn () => $manager->success('Success message'))->not->toThrow(Exception::class);
+    expect(fn () => $manager->warning('Warning message'))->not->toThrow(Exception::class);
+    expect(fn () => $manager->danger('Danger message'))->not->toThrow(Exception::class);
+    expect(fn () => $manager->error('Error message'))->not->toThrow(Exception::class);
+    expect(fn () => $manager->info('Info message'))->not->toThrow(Exception::class);
 });
 
 test('toast accepts all parameters', function () {
-    $manager = new FlareManager();
+    $manager = new FlareManager;
 
-    expect(fn() => $manager->toast(
+    expect(fn () => $manager->toast(
         text: 'Test message',
         heading: 'Test heading',
         duration: 3000,

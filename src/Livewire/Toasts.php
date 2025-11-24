@@ -18,23 +18,31 @@ final class Toasts extends Component
     /**
      * The position where toasts will be displayed.
      */
-    public string $position;
+    public string $position = 'bottom end';
 
     /**
      * Whether toasts should be expanded by default.
      */
-    public bool $expanded;
+    public bool $expanded = true;
 
     /**
-     * Initialize the component with position and expansion settings.
-     *
-     * @param string|null $position The position for displaying toasts
-     * @param bool|null   $expanded Whether toasts should be expanded
+     * The maximum number of toasts to display.
      */
-    public function mount(?string $position = null, ?bool $expanded = null): void
-    {
-        $this->position = $position ?? config('flare.position', 'bottom end');
-        $this->expanded = $expanded ?? config('flare.stack_expanded', true);
+    public int $maxVisible = 999;
+
+    /**
+     * Create a new toast component instance.
+     *
+     * @param  string|null  $position  The position for displaying toasts
+     */
+    public function __construct(
+        ?string $position = null
+    ) {
+        $pos = $position ?? config('flare.position', 'bottom end');
+        assert(is_string($pos));
+        $this->position = $pos;
+        $this->expanded = (bool) config('flare.stack_expanded', false);
+        $this->maxVisible = (int) config('flare.max_visible', 3);
     }
 
     /**
