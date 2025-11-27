@@ -25,6 +25,8 @@
 
 Flare is a modern, feature-rich toast notification system built specifically for Laravel Livewire applications. With **zero configuration** required and **three distinct visual themes**, Flare provides beautiful user feedback out of the box while offering extensive customization for advanced use cases.
 
+👉 **[Try the Live Playground](https://alizharb.github.io/flare/playground.html)**
+
 ```php
 // Simple, elegant API
 Flare::success('Profile updated successfully!');
@@ -48,60 +50,60 @@ Flare::warning(
 
 ### 🎨 **Three Professional Themes**
 
-- **Classic** - Minimal, clean, fastest performance
-- **Modern** - Balanced design with subtle effects _(default)_
-- **Vibrant** - Bold, colorful, attention-grabbing
+-   **Classic** - Minimal, clean, fastest performance
+-   **Modern** - Balanced design with subtle effects _(default)_
+-   **Vibrant** - Bold, colorful, attention-grabbing
 
 All themes include:
 
-- ✓ Light & dark mode support
-- ✓ Smooth animations
-- ✓ Responsive design
-- ✓ RTL/LTR layouts
+-   ✓ Light & dark mode support
+-   ✓ Smooth animations
+-   ✓ Responsive design
+-   ✓ RTL/LTR layouts
 
 ### ⚡ **High Performance**
 
-- Alpine.js powered (minimal overhead)
-- Optimized CSS transitions
-- Smart caching & compilation
-- No jQuery dependency
-- Lightweight footprint (~15KB)
+-   Alpine.js powered (minimal overhead)
+-   Optimized CSS transitions
+-   Smart caching & compilation
+-   No jQuery dependency
+-   Lightweight footprint (~15KB)
 
 ### 🔧 **Developer Experience**
 
-- **Zero Configuration** - Works out of the box
-- **Simple API** - Intuitive, clean methods
-- **Livewire Trait** - `use WithFlare`
-- **TypeScript Support** - Full type definitions
-- **IDE Autocomplete** - PHPDoc annotations
+-   **Zero Configuration** - Works out of the box
+-   **Simple API** - Intuitive, clean methods
+-   **Livewire Trait** - `use WithFlare`
+-   **TypeScript Support** - Full type definitions
+-   **IDE Autocomplete** - PHPDoc annotations
 
 </td>
 <td width="50%" valign="top">
 
 ### 📍 **Flexible Positioning**
 
-- 6 position options (top/bottom × start/center/end)
-- Per-toast position override
-- RTL/LTR automatic adaptation
-- Responsive mobile behavior
+-   6 position options (top/bottom × start/center/end)
+-   Per-toast position override
+-   RTL/LTR automatic adaptation
+-   Responsive mobile behavior
 
 ### 🎭 **Advanced Features**
 
-- **Stacking System** - Configurable toast layering
-- **Auto-Dismiss** - Configurable duration
-- **Hover Pause** - Pause on mouse hover
-- **Keyboard Shortcuts** - Esc, Shift+Esc, Alt+D
-- **Progress Bar** - Visual countdown
-- **Queue Management** - Handle multiple toasts
+-   **Stacking System** - Configurable toast layering
+-   **Auto-Dismiss** - Configurable duration
+-   **Hover Pause** - Pause on mouse hover
+-   **Keyboard Shortcuts** - Esc, Shift+Esc, Alt+D
+-   **Progress Bar** - Visual countdown
+-   **Queue Management** - Handle multiple toasts
 
 ### 🧪 **Production Ready**
 
-- ✓ Comprehensive test suite (12 tests, 22 assertions)
-- ✓ PHPStan Level 9 compliance
-- ✓ PSR-12 code style
-- ✓ CI/CD with GitHub Actions
-- ✓ Semantic versioning
-- ✓ Extensive documentation
+-   ✓ Comprehensive test suite (12 tests, 22 assertions)
+-   ✓ PHPStan Level 9 compliance
+-   ✓ PSR-12 code style
+-   ✓ CI/CD with GitHub Actions
+-   ✓ Semantic versioning
+-   ✓ Extensive documentation
 
 </td>
 </tr>
@@ -222,10 +224,10 @@ Flare.success("Item added to cart!");
 
 // Advanced
 Flare.toast("Welcome back!", {
-  heading: "Hello User",
-  variant: "info",
-  duration: 5000,
-  position: "top center",
+    heading: "Hello User",
+    variant: "info",
+    duration: 5000,
+    position: "top center",
 });
 ```
 
@@ -298,12 +300,13 @@ Moderate blur (8px)
 
 Visit our comprehensive documentation:
 
-- **[Introduction](docs/introduction.md)** - What is Flare?
-- **[Installation](docs/installation.md)** - Detailed setup guide
-- **[Quick Start](docs/quick-start.md)** - Get started in 5 minutes
-- **[Themes](docs/themes.md)** - Visual customization
-- **[Configuration](docs/configuration.md)** - All options explained
-- **[Examples](EXAMPLES.md)** - Real-world scenarios
+-   **[Introduction](docs/introduction.md)** - What is Flare?
+-   **[Installation](docs/installation.md)** - Detailed setup guide
+-   **[Quick Start](docs/quick-start.md)** - Get started in 5 minutes
+-   **[Playground](https://alizharb.github.io/flare/playground.html)** - Try it live
+-   **[Themes](docs/themes.md)** - Visual customization
+-   **[Configuration](docs/configuration.md)** - All options explained
+-   **[Examples](EXAMPLES.md)** - Real-world scenarios
 
 ### 🌐 Interactive Docs
 
@@ -505,11 +508,11 @@ See [CHANGELOG.md](CHANGELOG.md) for all changes and version history.
 
 ### Latest Release: v1.1.0
 
-- ✨ Three distinct themes (Classic, Modern, Vibrant)
-- 🐛 Fixed all positioning issues
-- ⚡ Improved stacking performance
-- 🌍 Added RTL/LTR support
-- 📚 Complete documentation
+-   ✨ Three distinct themes (Classic, Modern, Vibrant)
+-   🐛 Fixed all positioning issues
+-   ⚡ Improved stacking performance
+-   🌍 Added RTL/LTR support
+-   📚 Complete documentation
 
 ---
 
@@ -525,9 +528,9 @@ Flare is open-source software licensed under the [MIT License](LICENSE).
 
 Special thanks to:
 
-- Laravel & Livewire teams
-- Alpine.js community
-- All contributors
+-   Laravel & Livewire teams
+-   Alpine.js community
+-   All contributors
 
 ---
 
@@ -535,11 +538,11 @@ Special thanks to:
 
 If you find Flare useful, please consider:
 
-- ⭐ Starring the repository
-- 🐛 Reporting bugs
-- 💡 Suggesting features
-- 📖 Improving documentation
-- 💰 [Sponsoring development](https://github.com/sponsors/alizharb)
+-   ⭐ Starring the repository
+-   🐛 Reporting bugs
+-   💡 Suggesting features
+-   📖 Improving documentation
+-   💰 [Sponsoring development](https://github.com/sponsors/alizharb)
 
 ---
 
