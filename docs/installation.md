@@ -1,127 +1,89 @@
 # Installation
 
-Get Flare up and running in your Laravel application in just a few minutes.
+Getting started with Flare is a breeze. Follow these simple steps to integrate beautiful toast notifications into your Laravel application.
 
 ## Requirements
 
-- **PHP**: 8.3 or higher
-- **Laravel**: 12.0 or higher
-- **Livewire**: 3.5 or higher
-- **Alpine.js**: 3.x (included in Livewire 3)
+| Requirement   | Version           |
+| :------------ | :---------------- |
+| **PHP**       | `^8.1`            |
+| **Laravel**   | `^10.0` or higher |
+| **Livewire**  | `^3.0` or higher  |
+| **Alpine.js** | 3.x               |
+| **Tailwind**  | 4.x               |
 
 ## Step 1: Install via Composer
+
+Require the package using Composer:
 
 ```bash
 composer require alizharb/flare
 ```
 
-## Step 2: Publish Assets (Required)
+## Step 2: Add the Component
 
-> **IMPORTANT**: You MUST publish the assets for Flare to work.
+Add the `<x-flare::toast />` component to your main layout file. This is usually located at `resources/views/components/layouts/app.blade.php`.
 
-```bash
-php artisan vendor:publish --tag=flare-assets
-```
+> [!TIP]
+> Place the component near the end of the `<body>` tag to ensure it renders on top of other content.
 
-This copies JavaScript and CSS files to `public/vendor/alizharb/flare/`.
-
-## Step 3: Add to Your Layout
-
-Add Flare's scripts and styles to your main layout file:
-
-```blade
+```html
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My App</title>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <!-- ... -->
+        @livewireStyles
+    </head>
+    <body class="font-sans antialiased">
+        {{ $slot }}
 
-    <!-- Flare Styles (REQUIRED) -->
-    @flareStyles
-</head>
-<body>
-    {{ $slot }}
+        <!-- Add Flare Component Here -->
+        <x-flare::toast />
 
-    <!-- Flare Scripts (REQUIRED) -->
-    @flareScripts
-</body>
+        @livewireScripts
+    </body>
 </html>
 ```
 
-## Step 4: Add Toast Component
+## Step 3: Build Assets (Optional)
 
-Add the toast component to your layout (typically in your main layout):
+If you are using the default styling, **you're good to go!** Flare injects its styles automatically.
 
-```blade
-<!-- Add this once in your layout -->
-<flare::toasts />
-```
-
-That's it! You're ready to use Flare 🎉
-
-## Optional: Publish Configuration
-
-If you want to customize Flare's settings:
-
-```bash
-php artisan vendor:publish --tag=flare-config
-```
-
-This creates `config/flare.php` where you can configure:
-
-- Default theme
-- Default position
-- Stacking behavior
-- And more...
-
-## Optional: Publish Views
-
-To customize the toast component views:
+However, if you want to customize the styles or use the Tailwind classes directly in your build process, you can publish the views and assets.
 
 ```bash
 php artisan vendor:publish --tag=flare-views
 ```
 
-## Verification
+## Upgrading
 
-Test your installation with a simple toast:
+When upgrading to a new version of Flare, make sure to republish the assets if you have previously published them:
 
-```php
-use AlizHarb\Flare\Facades\Flare;
-
-Route::get('/test', function () {
-    Flare::success('Flare is working!');
-    return view('welcome');
-});
+```bash
+php artisan vendor:publish --tag=flare-assets --force
 ```
-
-Visit `/test` and you should see a success toast notification.
 
 ## Troubleshooting
 
-### Toasts Not Appearing
+<div class="space-y-4">
+<details class="collapsible">
+<summary>
+<span>Notifications not appearing?</span>
+<svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+</summary>
+<div class="collapsible-content">
+Ensure that <strong>Alpine.js</strong> is properly loaded in your layout. Livewire 3 includes Alpine by default, but if you've disabled it or are manually including it, make sure it's initialized.
+</div>
+</details>
+<details class="collapsible">
+<summary>
+<span>Styles looking wrong?</span>
+<svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+</summary>
+<div class="collapsible-content">
+Check if you are including the vendor directory in your CSS file using the <code>@source</code> directive:
+<pre class="mt-2 bg-gray-900 text-gray-100 p-3 rounded-lg overflow-x-auto"><code>@source "../vendor/alizharb/flare/resources/views/**/*.blade.php";</code></pre>
 
-Make sure you have:
-
-1. ✅ Published assets: `php artisan vendor:publish --tag=flare-assets`
-2. ✅ Added `@flareStyles` in `<head>`
-3. ✅ Added `@flareScripts` before `</body>`
-4. ✅ Added `<flare::toasts />` component
-5. ✅ Cleared cache: `php artisan optimize:clear`
-
-### Assets Not Loading
-
-```bash
-# Re-publish assets
-php artisan vendor:publish --tag=flare-assets --force
-
-# Clear all caches
-php artisan optimize:clear
-```
-
-## Next Steps
-
-- [Quick Start](quick-start.md) - Create your first toast
-- [Configuration](configuration.md) - Customize Flare
-- [Themes](themes.md) - Choose your visual style
+</div>
+</details>
+</div>

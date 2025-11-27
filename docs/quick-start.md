@@ -1,175 +1,91 @@
 # Quick Start
 
-Get started with Flare in 5 minutes.
+Ready to show your first notification? Let's go!
 
 ## Basic Usage
 
-### Method 1: Using the Facade
-
-Perfect for controllers, services, and any PHP class:
+The easiest way to use Flare is through the `Flare` facade. You can call it from any Livewire component or Controller.
 
 ```php
 use AlizHarb\Flare\Facades\Flare;
 
-class UserController extends Controller
+class UserProfile extends Component
 {
-    public function store(Request $request)
+    public function update()
     {
-        // Your logic...
+        // ... update logic ...
 
-        Flare::success('User created successfully!');
-
-        return redirect()->route('users.index');
+        Flare::success('Profile updated successfully!');
     }
 }
 ```
 
-### Method 2: Using the Livewire Trait
+## Notification Types
 
-The easiest way in Livewire components:
+Flare comes with 4 built-in notification types, each with its own distinct visual style.
 
-```php
-use Livewire\Component;
-use AlizHarb\Flare\Concerns\WithFlare;
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 not-prose my-8">
+<div class="p-4 rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800">
+<h4 class="font-bold text-green-700 dark:text-green-400 mb-2">Success</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Used for positive actions like saving data.</p>
+<div class="bg-gray-900 rounded-md p-3 overflow-x-auto">
+<code class="text-xs text-green-400">Flare::success('Data saved!');</code>
+</div>
+</div>
 
-class CreatePost extends Component
-{
-    use WithFlare;
+<div class="p-4 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800">
+<h4 class="font-bold text-red-700 dark:text-red-400 mb-2">Error / Danger</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Used for critical errors or failures.</p>
+<div class="bg-gray-900 rounded-md p-3 overflow-x-auto">
+<code class="text-xs text-red-400">Flare::error('Something went wrong.');</code>
+</div>
+</div>
 
-    public function save()
-    {
-        // Your logic...
+<div class="p-4 rounded-lg bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800">
+<h4 class="font-bold text-yellow-700 dark:text-yellow-400 mb-2">Warning</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Used for non-critical issues.</p>
+<div class="bg-gray-900 rounded-md p-3 overflow-x-auto">
+<code class="text-xs text-yellow-400">Flare::warning('Battery low.');</code>
+</div>
+</div>
 
-        $this->flareSuccess('Post published!');
-    }
+<div class="p-4 rounded-lg bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800">
+<h4 class="font-bold text-blue-700 dark:text-blue-400 mb-2">Info</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Used for general information.</p>
+<div class="bg-gray-900 rounded-md p-3 overflow-x-auto">
+<code class="text-xs text-blue-400">Flare::info('Update available.');</code>
+</div>
+</div>
+</div>
 
-    public function render()
-    {
-        return view('livewire.create-post');
-    }
-}
-```
+## Adding a Title
 
-### Method 3: Using JavaScript
-
-For client-side notifications:
-
-```javascript
-// Simple toast
-Flare.success("Item added to cart!");
-
-// With options
-Flare.toast("Welcome back!", {
-  heading: "Hello User",
-  variant: "info",
-  duration: 5000,
-});
-```
-
-## Toast Variants
-
-Flare provides 4 variants for different notification types:
-
-```php
-// Success (green) - Confirmations
-Flare::success('Operation completed');
-
-// Warning (yellow) - Cautionary messages
-Flare::warning('Please review this');
-
-// Danger (red) - Errors
-Flare::danger('Failed to save');
-
-// Info (blue) - Informational
-Flare::info('New features available');
-```
-
-## With Headings
-
-Add a heading to your toasts:
+You can add a bold title (heading) to any notification to give it more context:
 
 ```php
 Flare::success(
-    text: 'Your profile has been updated',
-    heading: 'Success'
+    text: 'Your changes have been saved.',
+    heading: 'Success!'
 );
 ```
 
-## Custom Duration
+## Customizing Duration
 
-Control how long toasts are visible:
-
-```php
-// Quick message (2 seconds)
-Flare::success('Saved', duration: 2000);
-
-// Longer message (10 seconds)
-Flare::warning('Important notice', duration: 10000);
-
-// Persistent (manual dismiss only)
-Flare::danger('Critical error', duration: 0);
-```
-
-## Custom Position
-
-Override the default position:
+By default, toasts disappear after 5 seconds. You can change this per toast:
 
 ```php
-Flare::success(
-    text: 'Message',
-    position: 'top center'
+Flare::info(
+    text: 'I will stay for 10 seconds.',
+    duration: 10000 // milliseconds
 );
 ```
 
-Available positions:
-
-- `top start`, `top center`, `top end`
-- `bottom start`, `bottom center`, `bottom end`
-
-## Complete Example
+> [!TIP]
+> To make a toast persistent (never auto-dismiss), set duration to `0`.
 
 ```php
-use Livewire\Component;
-use AlizHarb\Flare\Concerns\WithFlare;
-
-class ContactForm extends Component
-{
-    use WithFlare;
-
-    public $name;
-    public $email;
-    public $message;
-
-    public function submit()
-    {
-        $this->validate([
-            'name' => 'required|min:3',
-            'email' => 'required|email',
-            'message' => 'required|min:10',
-        ]);
-
-        // Send email logic...
-
-        $this->flareSuccess(
-            text: "Thank you! We'll get back to you soon.",
-            heading: 'Message Sent',
-            duration: 7000,
-            position: 'top center'
-        );
-
-        $this->reset();
-    }
-
-    public function render()
-    {
-        return view('livewire.contact-form');
-    }
-}
+Flare::error(
+    text: 'Network error. Please try again.',
+    duration: 0
+);
 ```
-
-## Next Steps
-
-- [Configuration](configuration.md) - Customize Flare
-- [Themes](themes.md) - Choose your visual style
-- [API Reference](api-reference.md) - All available methods
-- [Examples](examples.md) - Real-world scenarios

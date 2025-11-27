@@ -1,219 +1,84 @@
 # Themes
 
-Flare provides 3 distinct, professionally designed themes. Each theme supports both light and dark modes.
+Flare comes with three distinct themes to match the aesthetic of your application. You can set the global theme in `config/flare.php` or override it per toast.
 
-## Available Themes
+## Modern (Default)
 
-### Classic Theme - Minimal & Professional
+The **Modern** theme features a balanced design with subtle glassmorphism effects, rounded corners, and soft shadows. It fits perfectly with most modern SaaS applications and dashboards.
 
-Perfect for enterprise applications and admin dashboards.
-
-**Features:**
-
-- Solid backgrounds
-- Single shadow layer
-- No blur or gradients
-- Fastest performance
-- Clean, professional look
-
-**Configuration:**
-
-```php
-// config/flare.php
-'theme' => 'classic',
-```
-
-Or via environment:
-
-```env
-FLARE_THEME=classic
-```
-
-**Best For:**
-
-- Enterprise applications
-- Admin dashboards
-- Professional tools
-- Performance-critical apps
-
----
-
-### Modern Theme - Balanced & Contemporary (Default)
-
-Perfect for SaaS applications and general websites.
-
-**Features:**
-
-- Subtle transparency (98%)
-- Light blur (4px)
-- Gradient backgrounds
-- 2 shadow layers
-- Balanced aesthetics
-
-**Configuration:**
+<div class="p-6 rounded-xl bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 not-prose my-6">
+<div class="flex items-center gap-4 p-4 rounded-lg theme-modern max-w-sm">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400">
+<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+</div>
+<div>
+<h4 class="font-semibold text-gray-900 dark:text-white">Modern Theme</h4>
+<p class="text-sm text-gray-500 dark:text-gray-400">Clean, crisp, and beautiful.</p>
+</div>
+</div>
+</div>
 
 ```php
-// config/flare.php
-'theme' => 'modern', // Default
+Flare::info('This is the modern theme');
 ```
 
-**Best For:**
+## Classic
 
-- SaaS applications
-- Web applications
-- General websites
-- Balanced design needs
+The **Classic** theme is minimal, clean, and professional. It uses solid colors and standard borders, making it ideal for enterprise applications or data-heavy interfaces where clarity is paramount.
 
----
-
-### Vibrant Theme - Bold & Colorful
-
-Perfect for marketing sites and consumer applications.
-
-**Features:**
-
-- Strong gradients
-- Glowing colored shadows
-- Moderate blur (8px)
-- Eye-catching design
-- Bold, saturated colors
-
-**Configuration:**
+<div class="p-6 rounded-xl bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 not-prose my-6">
+<div class="flex items-center gap-4 p-4 rounded theme-classic theme-classic-success max-w-sm">
+<div class="flex-shrink-0 text-green-500">
+<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+</div>
+<div>
+<h4 class="font-bold text-gray-900 dark:text-white">Classic Theme</h4>
+<p class="text-sm text-gray-600 dark:text-gray-400">Simple and effective.</p>
+</div>
+</div>
+</div>
 
 ```php
-// config/flare.php
-'theme' => 'vibrant',
+Flare::success('This is the classic theme', ['theme' => 'classic']);
 ```
 
-Or via environment:
+## Vibrant
 
-```env
-FLARE_THEME=vibrant
+The **Vibrant** theme is bold and colorful. It uses gradients and high-contrast colors to ensure your notifications grab attention. Perfect for consumer-facing apps or marketing sites.
+
+<div class="p-6 rounded-xl bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 not-prose my-6">
+<div class="flex items-center gap-4 p-4 rounded-lg theme-vibrant theme-vibrant-warning max-w-sm">
+<div class="flex-shrink-0 text-white">
+<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+</div>
+<div class="text-white">
+<h4 class="font-bold">Vibrant Theme</h4>
+<p class="text-sm text-white/90">Impossible to miss.</p>
+</div>
+</div>
+</div>
+
+```php
+Flare::warning('This is the vibrant theme', ['theme' => 'vibrant']);
 ```
 
-**Best For:**
-
-- Marketing websites
-- Consumer applications
-- Creative platforms
-- Attention-grabbing notifications
-
-## Theme Comparison
-
-| Feature         | Classic    | Modern   | Vibrant         |
-| --------------- | ---------- | -------- | --------------- |
-| **Shadows**     | 1 layer    | 2 layers | 2 layers + glow |
-| **Blur**        | None       | 4px      | 8px             |
-| **Gradients**   | None       | Subtle   | Bold            |
-| **Performance** | ⚡ Fastest | ⚡ Fast  | ⚡ Good         |
-| **Best For**    | Enterprise | SaaS     | Marketing       |
-
-## Light & Dark Modes
-
-All themes automatically support both light and dark modes based on:
-
-1. **System Preference**: `prefers-color-scheme: dark`
-2. **Tailwind Dark Mode**: `.dark` class on HTML element
-
-### Example
-
-```html
-<!-- Light mode (default) -->
-<html>
-  <!-- Toasts use light theme -->
-</html>
-
-<!-- Dark mode (Tailwind) -->
-<html class="dark">
-  <!-- Toasts automatically use dark theme -->
-</html>
-```
-
-## Switching Themes
+## Changing Themes
 
 ### Global Configuration
 
-Set the theme once in your config file:
+Set the default theme in your `config/flare.php` file:
 
 ```php
-// config/flare.php
-return [
-    'theme' => 'modern', // classic, modern, vibrant
-];
+'theme' => 'vibrant',
 ```
 
-### Environment-Based
+### Per-Toast Override
 
-Use different themes per environment:
-
-```env
-# .env.local (development)
-FLARE_THEME=vibrant
-
-# .env.production
-FLARE_THEME=classic
-```
-
-## Theme Examples
-
-### Classic Theme
+You can override the theme for a specific notification using the `theme` option in the options array.
 
 ```php
-// Minimal, professional notification
-Flare::success('Data saved successfully');
+Flare::toast('Custom Theme Toast', [
+    'theme' => 'classic',
+    'variant' => 'success'
+]);
 ```
-
-**Appearance:**
-
-- Solid white background (light mode)
-- Solid dark background (dark mode)
-- Simple border
-- Single shadow
-- No blur
-
-### Modern Theme
-
-```php
-// Balanced, contemporary notification
-Flare::info('Your report is ready for download');
-```
-
-**Appearance:**
-
-- Semi-transparent background
-- Subtle gradient
-- Light blur effect
-- Layered shadows
-- Modern feel
-
-### Vibrant Theme
-
-```php
-// Bold, eye-catching notification
-Flare::success('Welcome to our platform!');
-```
-
-**Appearance:**
-
-- Strong gradient background
-- Glowing colored shadows
-- Moderate blur
-- Bold colors
-- Attention-grabbing
-
-## Customization
-
-While Flare provides 3 pre-designed themes, you can customize the CSS if needed:
-
-```bash
-# Publish views to customize
-php artisan vendor:publish --tag=flare-views
-```
-
-Then modify the CSS in `resources/css/flare.css`.
-
-## Next Steps
-
-- [Configuration](configuration.md) - All config options
-- [Positioning](positioning.md) - Toast placement
-- [Examples](examples.md) - Real-world use cases
