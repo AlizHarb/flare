@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace AlizHarb\Flare;
 
+use AlizHarb\Flare\Livewire\Toasts;
+use AlizHarb\Flare\View\Components\Toast;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
@@ -56,7 +58,7 @@ final class FlareServiceProvider extends ServiceProvider
      */
     protected function registerLivewireComponents(): void
     {
-        Livewire::component('flare-toasts', \AlizHarb\Flare\Livewire\Toasts::class);
+        Livewire::component('flare-toasts', Toasts::class);
     }
 
     /**
@@ -66,8 +68,8 @@ final class FlareServiceProvider extends ServiceProvider
      */
     protected function registerBladeComponents(): void
     {
-        Blade::component('flare::toast', \AlizHarb\Flare\View\Components\Toast::class);
-        Blade::component('flare::toasts', \AlizHarb\Flare\View\Components\Toasts::class);
+        Blade::component('flare::toast', Toast::class);
+        Blade::component('flare::toasts', View\Components\Toasts::class);
     }
 
     /**

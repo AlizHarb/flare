@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace AlizHarb\Flare;
 
+use Livewire\Component;
+use Livewire\LivewireManager;
+
 /**
  * FlareManager handles the core functionality for displaying toast notifications.
  *
@@ -402,12 +405,12 @@ final class FlareManager
     private function dispatchToast(array $params): void
     {
         if (app()->bound('livewire')) {
-            /** @var \Livewire\LivewireManager $livewire */
+            /** @var LivewireManager $livewire */
             $livewire = app('livewire');
 
             // @phpstan-ignore-next-line - method_exists checks are redundant due to PHPDoc types
             if ($livewire->isLivewireRequest() && method_exists($livewire, 'current')) {
-                /** @var \Livewire\Component $component */
+                /** @var Component $component */
                 $component = $livewire->current();
 
                 // @phpstan-ignore-next-line - method_exists checks are redundant due to PHPDoc types

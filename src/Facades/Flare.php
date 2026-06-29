@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace AlizHarb\Flare\Facades;
 
+use AlizHarb\Flare\FlareManager;
 use Illuminate\Support\Facades\Facade;
 
 /**
@@ -18,7 +19,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static string scripts() Generate the Flare JavaScript include tag
  * @method static string styles() Generate the Flare CSS include tag
  *
- * @see \AlizHarb\Flare\FlareManager
+ * @see FlareManager
  */
 final class Flare extends Facade
 {

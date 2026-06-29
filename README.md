@@ -9,8 +9,8 @@
 **Elegant • Performant • Customizable**
 
 [![PHP Version](https://img.shields.io/badge/PHP-8.3%2B-777BB4?style=flat-square&logo=php&logoColor=white)](https://php.net)
-[![Laravel](https://img.shields.io/badge/Laravel-12.0%2B-FF2D20?style=flat-square&logo=laravel&logoColor=white)](https://laravel.com)
-[![Livewire](https://img.shields.io/badge/Livewire-3.5%2B-4E56A6?style=flat-square&logo=livewire&logoColor=white)](https://livewire.laravel.com)
+[![Laravel](https://img.shields.io/badge/Laravel-12.0%20%7C%2013.0%2B-FF2D20?style=flat-square&logo=laravel&logoColor=white)](https://laravel.com)
+[![Livewire](https://img.shields.io/badge/Livewire-3.5%20%7C%204.0%2B-4E56A6?style=flat-square&logo=livewire&logoColor=white)](https://livewire.laravel.com)
 [![Tests](https://img.shields.io/github/actions/workflow/status/alizharb/flare/tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/alizharb/flare/actions)
 [![License](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](LICENSE)
 [![Downloads](https://img.shields.io/packagist/dt/alizharb/flare?style=flat-square)](https://packagist.org/packages/alizharb/flare)
@@ -116,9 +116,9 @@ All themes include:
 | Requirement   | Version                        |
 | ------------- | ------------------------------ |
 | **PHP**       | 8.3+                           |
-| **Laravel**   | 12.0+                          |
-| **Livewire**  | 3.5+                           |
-| **Alpine.js** | 3.x _(included in Livewire 3)_ |
+| **Laravel**   | 12.0+ / 13.0+                  |
+| **Livewire**  | 3.5+ / 4.0+                    |
+| **Alpine.js** | 3.x / 4.x                      |
 
 ---
 
