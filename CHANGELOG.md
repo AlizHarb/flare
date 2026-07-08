@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2026-07-08
+
+### Added
+
+- Official Laravel 13 support via `illuminate/support:^13.0`.
+- Official Livewire 4 support via `livewire/livewire:^4.0`.
+- CI coverage for Laravel 12 + Livewire 3 and Laravel 13 + Livewire 4.
+
+### Changed
+
+- Expanded development constraints to allow Orchestra Testbench 11 for Laravel 13 compatibility testing.
+- Updated package documentation to show the supported Laravel and Livewire versions.
+
 ## [1.1.0] - 2025-11-24
 
 ### Added
@@ -93,5 +106,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Responsive design
 - Accessibility features (ARIA labels, screen reader support)
 
+[1.2.0]: https://github.com/alizharb/flare/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/alizharb/flare/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/alizharb/flare/releases/tag/v1.0.0

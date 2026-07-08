@@ -9,8 +9,8 @@ Flare v1.1 is a feature-packed release that adds action buttons, priority orderi
 ## Requirements
 
 - PHP 8.3+ (unchanged)
-- Laravel 12.0+ (unchanged)
-- Livewire 3.5+ (unchanged)
+- Laravel 12.0+ or 13.0+
+- Livewire 3.5+ or 4.0+
 
 ## Step-by-Step Upgrade
 

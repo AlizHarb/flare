@@ -6,9 +6,9 @@ Getting started with Flare is a breeze. Follow these simple steps to integrate b
 
 | Requirement   | Version           |
 | :------------ | :---------------- |
-| **PHP**       | `^8.1`            |
-| **Laravel**   | `^10.0` or higher |
-| **Livewire**  | `^3.0` or higher  |
+| **PHP**       | `^8.3`             |
+| **Laravel**   | `^12.0` or `^13.0` |
+| **Livewire**  | `^3.5` or `^4.0`   |
 | **Alpine.js** | 3.x               |
 | **Tailwind**  | 4.x               |
 
